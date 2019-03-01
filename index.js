@@ -13,7 +13,7 @@ const app = express();
 // Dados de conexão
 var db_host = '127.0.0.1';
 var db_user = 'root';
-var db_senha = 'root';
+var db_senha = '';
 var db_name = 'closet';
 var tables = ['pecas', 'looks', 'viagens'];
 var campos = ['categoria'];
@@ -632,9 +632,7 @@ app.patch('/:table/:_id', (req, res) => {
 
     if(!validaTabela(table)) {
 
-        res.json({ erro: true, mensagem: 'Tabela buscada não existe na base de dados' });
-
-        return null;
+        return res.json({ erro: true, mensagem: 'Tabela buscada não existe na base de dados' });
 
     }
 
@@ -654,7 +652,6 @@ app.patch('/:table/:_id', (req, res) => {
         };
 
     }
-
     let query = criarQueryUpdate(dados, table, where);
 
     connection.query(query, (err, result) => {
@@ -663,13 +660,13 @@ app.patch('/:table/:_id', (req, res) => {
 
             console.error(JSON.stringify(err));
 
-            res.json({ erro: true, mensagem: JSON.stringify(err) });
+            return res.json({ erro: true, mensagem: JSON.stringify(err) });
 
         }
 
         if(result !== null) {
 
-            res.json({ erro: false, resultado: result });
+            return res.json({ erro: false, resultado: result });
 
         }
 

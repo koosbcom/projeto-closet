@@ -2831,7 +2831,7 @@
   background-color: hsla(0, 0%, 40%, .02);
 }
 
-.block-semana1 {
+.block-semana-1, .block-semana-2, .block-semana-3, .block-semana-4, .block-semana-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2844,6 +2844,7 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
+
 
 .block-dia {
   display: -webkit-box;
