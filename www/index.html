@@ -185,32 +185,32 @@
             <div>
               <form>
                 <input type="text" class="tfield-busca-closet w-input" maxlength="256" name="busca-2" data-name="Busca 2" placeholder="Buscar" id="buscarLooks" required="">
-                <input type="button" onclick="buscarPecas()" value="Buscar" data-wait="Please wait..." class="submit-busca w-button">
+                <input type="button" onclick="buscarLook()" value="Buscar" data-wait="Please wait..." class="submit-busca w-button">
               </form>
             </div>
             <h3 class="h3-categoria">Tipos</h3>
-            <div class="tblock-lista">Calças</div>
-            <div class="tblock-lista">Casacos</div>
-            <div class="tblock-lista">Camisas</div>
-            <div class="tblock-lista">Jaquetas</div>
-            <div class="tblock-lista">Vestidos</div>
-            <div class="tblock-lista">Saia</div>
-            <div class="tblock-lista">Shorts</div>
-            <div class="tblock-lista">Tops</div>
-            <div class="tblock-lista">Tricot</div>
+            <div class="tblock-lista" onclick="looksCategoria('calças')">Calças</div>
+            <div class="tblock-lista" onclick="looksCategoria('casacos')">Casacos</div>
+            <div class="tblock-lista" onclick="looksCategoria('camisas')">Camisas</div>
+            <div class="tblock-lista" onclick="looksCategoria('jaquetas')">Jaquetas</div>
+            <div class="tblock-lista" onclick="looksCategoria('vestidos')">Vestidos</div>
+            <div class="tblock-lista" onclick="looksCategoria('saia')">Saia</div>
+            <div class="tblock-lista" onclick="looksCategoria('shorts')">Shorts</div>
+            <div class="tblock-lista" onclick="looksCategoria('tops')">Tops</div>
+            <div class="tblock-lista" onclick="looksCategoria('tricot')">Tricot</div>
             <h3 class="h3-categoria">Praia</h3>
-            <div class="tblock-lista">Biquíni</div>
-            <div class="tblock-lista">Saída de praia</div>
+            <div class="tblock-lista" onclick="looksCategoria('biquini')">Biquíni</div>
+            <div class="tblock-lista" onclick="looksCategoria('saida-de-praia')">Saída de praia</div>
             <h3 class="h3-categoria">Sapatos</h3>
-            <div class="tblock-lista">Sapatos</div>
-            <div class="tblock-lista">Salto alto</div>
-            <div class="tblock-lista">Salto baixo</div>
-            <div class="tblock-lista">Salto médio</div>
-            <div class="tblock-lista">Sem salto</div>
+            <div class="tblock-lista" onclick="looksCategoria('sapatos')">Sapatos</div>
+            <div class="tblock-lista" onclick="looksCategoria('salto-alto')">Salto alto</div>
+            <div class="tblock-lista" onclick="looksCategoria('salto-baixo')">Salto baixo</div>
+            <div class="tblock-lista" onclick="looksCategoria('salto-medio')">Salto médio</div>
+            <div class="tblock-lista" onclick="looksCategoria('sem-salto')">Sem salto</div>
             <h3 class="h3-categoria">Acessórios</h3>
-            <div class="tblock-lista">Bolsas</div>
-            <div class="tblock-lista">Acessórios</div>
-            <div class="tblock-lista">Jóias</div>
+            <div class="tblock-lista" onclick="looksCategoria('bolsas')">Bolsas</div>
+            <div class="tblock-lista" onclick="looksCategoria('acessorios')">Acessórios</div>
+            <div class="tblock-lista" onclick="looksCategoria('joias')">Jóias</div>
           </div>
           <div class="block-conteudo">
             <div class="block-busca busca-none">
@@ -241,49 +241,29 @@
                 </div>
               </div>
             </div>
+
+            <div class="block-peca pecas looks-start-0" style="display: none">
+              <div class="block-peca looks-look-0"></div>
+              <h4 class="h4-fonte escrito-look-0">Look Calor 1</h4>
+            </div>
+            <div class="block-peca pecas looks-start-1" style="display: none">
+              <div class="block-peca looks-look-1"></div>
+              <h4 class="h4-fonte escrito-look-1" >Look Calor 2</h4>
+            </div>
+            <div class="block-peca pecas looks-start-2" style="display: none">
+              <div class="block-peca looks-look-2"></div>
+              <h4 class="h4-fonte escrito-look-2">Look Calor 3</h4>
+            </div>
+
             <div class="block-pecas pecas-margin">
               <div class="row-101 w-row">
-                <div class="columns-pecas w-col w-col-4">
-                  <div class="block-peca pecas">
-                    <div class="block-peca peca-lookk"></div>
-                    <h4 class="h4-fonte">Look Calor</h4>
-                  </div>
-                  <div class="block-peca pecas">
-                    <div class="block-peca peca-lookk"></div>
-                    <h4 class="h4-fonte">Look Calor</h4>
-                  </div>
-                  <div class="block-peca pecas">
-                    <div class="block-peca peca-lookk"></div>
-                    <h4 class="h4-fonte">Look Calor</h4>
-                  </div>
+                <div class="columns-pecas w-col w-col-4" id="coluna-looks-0">
                 </div>
-                <div class="columns-pecas w-col w-col-4">
-                  <div class="block-peca pecas">
-                    <div class="block-peca peca-lookk"></div>
-                    <h4 class="h4-fonte">Look Calor</h4>
-                  </div>
-                  <div class="block-peca pecas">
-                    <div class="block-peca peca-lookk"></div>
-                    <h4 class="h4-fonte">Look Calor</h4>
-                  </div>
-                  <div class="block-peca pecas">
-                    <div class="block-peca peca-lookk"></div>
-                    <h4 class="h4-fonte">Look Calor</h4>
-                  </div>
+
+                <div class="columns-pecas w-col w-col-4" id="coluna-looks-1">
                 </div>
-                <div class="columns-pecas w-col w-col-4">
-                  <div class="block-peca pecas">
-                    <div class="block-peca peca-lookk"></div>
-                    <h4 class="h4-fonte">Look Calor</h4>
-                  </div>
-                  <div class="block-peca pecas">
-                    <div class="block-peca peca-lookk"></div>
-                    <h4 class="h4-fonte">Look Calor</h4>
-                  </div>
-                  <div class="block-peca pecas">
-                    <div class="block-peca peca-lookk"></div>
-                    <h4 class="h4-fonte">Look Calor</h4>
-                  </div>
+
+                <div class="columns-pecas w-col w-col-4" id="coluna-looks-2 " >
                 </div>
               </div>
             </div>
@@ -344,7 +324,7 @@
                   <label class="flabel-tipo tipo-espaco menos-espaco">Closet</label>
                   <div class="block-conteudo-flex">
                       <label for="Tipo-Peca-2" class="flabel-cadastro">Selecione o tipo de peça para compor o Look</label>
-                      <select id="Tipo-Peca-2" onchange="categoriaPecasLook(this.value)" class="tfield-cadastro w-select">
+                      <select id="Tipo-Peca-2" onchange="looksCategoria(this.value)" class="tfield-cadastro w-select">
                         <option value="" selected disabled>Categoria</option>
                         <option value="" disabled>Tipos</option>
                         <option value="calças">Calças</option>
@@ -378,13 +358,7 @@
 
                   </div>
                 </div>
-              </div><input type="submit" value="Concluir" data-wait="Por Favor Aguarde" class="button-add w-button"></form>
-            <div class="w-form-done">
-              <div>Thank you! Your submission has been received!</div>
-            </div>
-            <div class="w-form-fail">
-              <div>Oops! Something went wrong while submitting the form.</div>
-            </div>
+              </div><input type="submit" onclick="adicionarLook()" value="Concluir" data-wait="Por Favor Aguarde" class="button-add w-button"></form>
           </div>
         </div>
       </div>
@@ -528,6 +502,7 @@
   <script src="js/webflow.js" type="text/javascript"></script>
   <script src="js/bibliotecas/loading.js"></script>
   <script src="js/common.js"></script>
+  <script src="js/looks.js"></script>
   <script src="js/functions_index.js"></script>
   <script src="js/bibliotecas/jquery.toast.js"></script>
   <script src="js/bibliotecas/jquery.mask.min.js"></script>

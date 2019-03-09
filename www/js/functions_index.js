@@ -162,6 +162,7 @@ $ (document).ready (function () {
 
   atualizarPecas ();
   atualizarViagens ();
+  buscarLooks('todos');
 });
 
 // Adiciona uma nova foto a uma peça
@@ -469,6 +470,7 @@ function adicionarLook () {
     categorias: $ ('#categoriasLook').val (),
     pecas: JSON.stringify (pecasLook),
   };
+  console.log(`AdicionarLook`)
 
   enviarDados ('looks', dados)
     .then (result => {
@@ -480,6 +482,7 @@ function adicionarLook () {
       });
     })
     .catch (err => {
+      console.error(err)
       $.toast ({
         heading: 'Erro',
         text: 'Não foi possível se conectar ao servidor. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
