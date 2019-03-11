@@ -242,29 +242,37 @@
               </div>
             </div>
 
-            <div class="block-peca pecas looks-start-0" style="display: none">
+            <div class="block-peca pecas looks-start-0" onclick="detalharLook(event)" href="" style="display: none">
+              <div class="id-look-0"></div>
               <div class="block-peca looks-look-0"></div>
               <h4 class="h4-fonte escrito-look-0">Look Calor 1</h4>
             </div>
-            <div class="block-peca pecas looks-start-1" style="display: none">
+            
+            <div class="block-peca pecas looks-start-1" onclick="detalharLook(event)" style="display: none">
+              <div class="id-look-1"></div>
               <div class="block-peca looks-look-1"></div>
               <h4 class="h4-fonte escrito-look-1" >Look Calor 2</h4>
             </div>
-            <div class="block-peca pecas looks-start-2" style="display: none">
-              <div class="block-peca looks-look-2"></div>
-              <h4 class="h4-fonte escrito-look-2">Look Calor 3</h4>
-            </div>
+
+            <div class="block-peca pecas looks-start-2" onclick="detalharLook(event)" style="display: none">
+                <div class="id-look-2"></div>
+                <div class="block-peca looks-look-2"></div>
+                <h4 class="h4-fonte escrito-look-2" >Look Calor 3</h4>
+              </div>
+
 
             <div class="block-pecas pecas-margin">
               <div class="row-101 w-row">
+
                 <div class="columns-pecas w-col w-col-4" id="coluna-looks-0">
                 </div>
 
                 <div class="columns-pecas w-col w-col-4" id="coluna-looks-1">
                 </div>
 
-                <div class="columns-pecas w-col w-col-4" id="coluna-looks-2 " >
+                <div class="columns-pecas w-col w-col-4" id="coluna-looks-2">
                 </div>
+
               </div>
             </div>
           </div>
@@ -324,7 +332,7 @@
                   <label class="flabel-tipo tipo-espaco menos-espaco">Closet</label>
                   <div class="block-conteudo-flex">
                       <label for="Tipo-Peca-2" class="flabel-cadastro">Selecione o tipo de peça para compor o Look</label>
-                      <select id="Tipo-Peca-2" onchange="looksCategoria(this.value)" class="tfield-cadastro w-select">
+                      <select id="Tipo-Peca-2" onchange="categoriaPecasLook(this.value)" class="tfield-cadastro w-select">
                         <option value="" selected disabled>Categoria</option>
                         <option value="" disabled>Tipos</option>
                         <option value="calças">Calças</option>

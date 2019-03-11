@@ -102,3 +102,38 @@ function alterarDados(endpoint, dados) {
     });
 
 }
+
+function apagarDados(endpoint) {
+
+  return new Promise((resolve, reject) => {
+
+      $.ajax({
+          type: "DELETE",
+          url: URL + endpoint,
+          beforeSend: () => {
+
+              $('.body-100').loading({
+                  stoppable: true
+              });
+
+          },
+          success: (data) => {
+
+              $('.body-100').loading('stop');
+              
+              if(data.erro === true) {
+
+                  reject(data);
+  
+              } else {
+  
+                  resolve(data);
+  
+              }
+
+          }
+      });
+
+  });
+
+}

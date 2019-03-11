@@ -162,7 +162,7 @@ $ (document).ready (function () {
 
   atualizarPecas ();
   atualizarViagens ();
-  buscarLooks('todos');
+  buscarLooks(true);
 });
 
 // Adiciona uma nova foto a uma peça

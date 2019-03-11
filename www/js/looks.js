@@ -48,13 +48,14 @@ function carregarLooks(result) {
     .appendTo('#coluna-looks-2');
 
   for (let i = 0; i < looks.length; i++) {
-    const fotosOBJ = JSON.parse(looks[i].pecas);
-    const fotosPecas = JSON.parse(fotosOBJ[0].fotos);
+    const pecas = JSON.parse(looks[i].pecas);
+    const fotosPecas = JSON.parse(pecas[0].fotos);
 
     $('.looks-start-' + contador + ':eq(0)')
       .clone()
       .appendTo('#coluna-looks-' + contador);
     $('.looks-start-' + contador + ':eq(' + colunas[contador] + ')').show();
+
     $('.looks-look-' + contador + ':eq(' + colunas[contador] + ')').css(
       'background-image',
       'url(uploads/' + fotosPecas[0] + ')'
@@ -62,11 +63,15 @@ function carregarLooks(result) {
     $('.escrito-look-' + contador + ':eq(' + colunas[contador] + ')').html(
       looks[i].nome
     );
+    $('.id-look-' + contador + ':eq(' + colunas[contador] + ')').html(
+      looks[i].look_id
+    ).hide();
 
+    
     colunas[contador]++;
 
     contador++;
-
+      
     if (contador > 2) {
       contador = 0;
     }
@@ -121,3 +126,9 @@ function buscarLook() {
       });
     });
 }
+
+function detalharLook (event) {
+  const idLook = event.toElement.parentElement.children[0].innerHTML
+  window.location = "/detalhes-look.html?id=" + idLook
+}
+

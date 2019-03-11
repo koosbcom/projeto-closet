@@ -228,8 +228,11 @@ app.get('/:table/id/:_id', (req, res) => {
       mensagem: 'Tabela buscada não existe na base de dados',
     });
   }
+  let field = 'id';
+  if (table === 'looks') field = 'look_id';
 
-  let query = 'SELECT * FROM ' + table + ' WHERE id = ' + mysql.escape(id);
+  let query =
+    'SELECT * FROM ' + table + ' WHERE ' + field + ' = ' + mysql.escape(id);
 
   connection.query(query, (err, result) => {
     if (err) {
@@ -572,9 +575,12 @@ app.delete('/:table/:_id', (req, res) => {
     return null;
   }
 
-  let query = 'DELETE FROM ' + table + ' WHERE id = ' + mysql.escape(id);
+  let field = 'id'
+  if (table === 'looks') field = 'look_id'
 
-  db.collection(table).deleteOne({ _id: ObjectId(id) }, (err, result) => {
+  let query = 'DELETE FROM ' + table + ' WHERE ' + field + ' = ' + mysql.escape(id);
+
+  connection.query(query, (err, result) => {
     if (err) {
       console.error(JSON.stringify(err));
 
