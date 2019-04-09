@@ -11,13 +11,13 @@ const pathModule = require('path');
 const app = express();
 
 // Dados de conexão
-var db_host = '127.0.0.1';
-var db_user = 'root';
-var db_senha = '';
-var db_name = 'closet';
-var tables = ['pecas', 'looks', 'viagens', 'categorias'];
+var db_host = '148.72.80.32';
+var db_user = 'motu';
+var db_senha = 'iS89!Hwe';
+var db_name = 'closet-bianca';
+var tables = ['pecas', 'looks', 'viagens'];
 var campos = ['categoria', 'pecas', 'nome', 'categorias'];
-
+const port = 8080
 // BodyParser
 app.use(bodyParser());
 
@@ -36,8 +36,8 @@ connection = mysql.createConnection({
   database: db_name,
 });
 
-app.listen(8080, () => {
-  console.log('listening on 8080');
+app.listen(port, () => {
+  console.log('listening on ' + port);
 });
 
 //Libera requisições CORS
