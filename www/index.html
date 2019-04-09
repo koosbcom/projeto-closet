@@ -288,7 +288,7 @@
                   <label for="Nome-look" class="flabel-cadastro">Insira o nome do look</label>
                   <input type="text" class="tfield-cadastro w-input" maxlength="256" name="Nome-look" data-name="Nome Look" placeholder="Crie um nome para o look" id="nomeLook">
                   <label for="Tipo-Peca-2" class="flabel-cadastro">Observações</label>
-                  <textarea id="obervacoesLook" name="field" placeholder="Example Text" maxlength="5000" data-name="Field" class="tfield-cadastro w-input"></textarea>
+                  <textarea id="observacoesLook" name="field" placeholder="Example Text" maxlength="5000" data-name="Field" class="tfield-cadastro w-input"></textarea>
                   <label for="Tipo-Peca-2" class="flabel-cadastro">Categorias do Look</label>
                   <select id="categoriasLook" name="Tipo-Peca-2" data-name="Tipo Peca 2" required="" multiple="" class="tfield-cadastro w-select">
                       <option value="" selected disabled>Categoria</option>
@@ -374,7 +374,7 @@
         <div class="block-pecas pecas-margin">
            <div class="block-peca mala1 viagem" style="display:none">
             <h1 class="h1-mala h4-fonte cidade-viagem">Nova York</h1>
-            <div class="tblock-data data1 h4-fonte data-viagem">de 12/34/5678 a 12/34/5678</div>
+            <div class="tblock-data data1 h4-fonte data-viagem">de 01/01/2019 a 31/12/2019</div>
           </div>
 
           <div class="block-form" id="mod-viagem-form" data-ix="bloc-form">
@@ -387,6 +387,7 @@
                     <input type="hidden" id="viagemID" value="">
                   </div>
                   <input type="submit" value="Adicionar" id="submit-viagem" data-wait="Por favor aguarde" class="submit-button w-button">
+                  <button id="btn-deletar-viagem" data-wait="Por favor aguarde" class="submit-button w-button">Excluir</button>
                 </form>
               </div>
             </div>
@@ -514,7 +515,7 @@
   <script src="js/functions_index.js"></script>
   <script src="js/bibliotecas/jquery.toast.js"></script>
   <script src="js/bibliotecas/jquery.mask.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>
 </html>

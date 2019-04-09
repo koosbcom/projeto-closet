@@ -15,8 +15,8 @@ var db_host = '127.0.0.1';
 var db_user = 'root';
 var db_senha = '';
 var db_name = 'closet';
-var tables = ['pecas', 'looks', 'viagens'];
-var campos = ['categoria', 'pecas', 'nome'];
+var tables = ['pecas', 'looks', 'viagens', 'categorias'];
+var campos = ['categoria', 'pecas', 'nome', 'categorias'];
 
 // BodyParser
 app.use(bodyParser());
@@ -270,10 +270,7 @@ app.get('/:table/marca/:busca', (req, res) => {
     });
   }
 
-  let query =
-    'SELECT * FROM ' + table + ' WHERE ' + campo + " LIKE '%" + busca + "%'";
-
-  console.log('query: ' + query);
+  let query = 'SELECT * FROM ' + table + ' WHERE ' + campo + " LIKE '%" + busca + "%'";
 
   connection.query(query, (err, result) => {
     if (err) {
@@ -484,7 +481,7 @@ app.post('/pecas', (req, res) => {
 
 // Adiciona dados em uma tabela
 app.post('/:table', (req, res) => {
-  console.log(req.body);
+  console.log('POST');
 
   let table = req.params.table;
 
@@ -536,7 +533,12 @@ app.patch('/:table/:_id', (req, res) => {
   let dados = updateDados(req.body.dados);
   let where;
 
-  if (table === 'viagens') {
+  if (table === 'looks') {
+    where = {
+      look_id: id,
+    };
+    
+  } else if (table === 'viagens') {
     where = {
       viagem_id: id,
     };
@@ -545,6 +547,8 @@ app.patch('/:table/:_id', (req, res) => {
       id: id,
     };
   }
+
+
   let query = criarQueryUpdate(dados, table, where);
 
   connection.query(query, (err, result) => {
@@ -567,16 +571,15 @@ app.delete('/:table/:_id', (req, res) => {
     table = req.params.table;
 
   if (!validaTabela(table)) {
-    res.json({
+    return res.json({
       erro: true,
       mensagem: 'Tabela buscada não existe na base de dados',
     });
-
-    return null;
   }
 
   let field = 'id'
   if (table === 'looks') field = 'look_id'
+  if (table === 'viagens') field = 'viagem_id'
 
   let query = 'DELETE FROM ' + table + ' WHERE ' + field + ' = ' + mysql.escape(id);
 
@@ -584,11 +587,11 @@ app.delete('/:table/:_id', (req, res) => {
     if (err) {
       console.error(JSON.stringify(err));
 
-      res.json({ erro: true, mensagem: JSON.stringify(err) });
+      return res.json({ erro: true, mensagem: JSON.stringify(err) });
     }
 
     if (result !== null) {
-      res.json({ erro: false, resultado: result });
+      return res.json({ erro: false, resultado: result });
     }
   });
 });

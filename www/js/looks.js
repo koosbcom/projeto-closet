@@ -15,6 +15,7 @@ function buscarLooks(todos) {
       carregarLooks(result);
     })
     .catch((err) => {
+      console.error(err)
       $('.body-100').loading('stop');
 
       $.toast({
@@ -49,7 +50,7 @@ function carregarLooks(result) {
 
   for (let i = 0; i < looks.length; i++) {
     const pecas = JSON.parse(looks[i].pecas);
-    const fotosPecas = JSON.parse(pecas[0].fotos);
+    const fotosPecas = typeof(pecas[0].fotos) === 'string' ? JSON.parse(pecas[0].fotos) : pecas[0].fotos
 
     $('.looks-start-' + contador + ':eq(0)')
       .clone()
@@ -67,7 +68,6 @@ function carregarLooks(result) {
       looks[i].look_id
     ).hide();
 
-    
     colunas[contador]++;
 
     contador++;
@@ -75,6 +75,7 @@ function carregarLooks(result) {
     if (contador > 2) {
       contador = 0;
     }
+
   }
 }
 
@@ -83,7 +84,7 @@ function looksCategoria(categoria) {
     stoppable: true,
   });
 
-  obterDados('looks/pecas/' + categoria + '?like=true')
+  obterDados('looks/categorias/' + categoria + '?like=true')
     .then((result) => {
       $('.body-100').loading('stop');
       carregarLooks(result);
