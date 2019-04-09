@@ -74,108 +74,116 @@
 
   <section class="section-edit" style="display:none">
 
-      <form id="wf-form-cadastro-peca" name="wf-form-cadastro-peca" data-name="cadastro peca" class="form-100">
-          <div class="block-row">
-            <div class="block-column1 column-3">
-              <label for="Nome-look" class="flabel-cadastro">Insira o nome do look</label>
-              <input type="text" class="tfield-cadastro w-input" maxlength="256" name="Nome-look" data-name="Nome Look" placeholder="Insira um nome para o look" id="nomeLook">
-              <label for="Tipo-Peca-2" class="flabel-cadastro">Observações</label>
-              <textarea id="observacoes-look" name="field" placeholder="..." maxlength="5000" data-name="Field" class="tfield-cadastro w-input"></textarea>
-              <label for="Tipo-Peca-2" class="flabel-cadastro">Categorias do Look</label>
-              <select id="categorias-look" name="Tipo-Peca-2" data-name="Tipo Peca 2" required="" multiple="" class="tfield-cadastro w-select">
-                  <option value="" selected disabled>Categoria</option>
-                  <option value="" disabled>Tipos</option>
-                  <option value="calças">Calças</option>
-                  <option value="casacos">Casacos</option>
-                  <option value="camisas">Camisas</option>
-                  <option value="jaquetas">Jaquetas</option>
-                  <option value="vestidos">Vestidos</option>
-                  <option value="saia">Saia</option>
-                  <option value="shorts">Shorts</option>
-                  <option value="tops">Tops</option>
-                  <option value="tricot">Tricot</option>
-                  <option value="" disabled>Praia</option>
-                  <option value="biquini">Biquíni</option>
-                  <option value="saida-de-praia">Saída de Praia</option>
-                  <option disabled>Sapatos</option>
-                  <option value="sapatos">Sapatos</option>
-                  <option value="salto-alto">Salto Alto</option>
-                  <option value="salto-baixo">Salto Baixo</option>
-                  <option value="salto-medio">Salto Médio</option>
-                  <option value="sem-salto">Sem Salto</option>
-                  <option disabled>Acessórios</option>
-                  <option value="bolsas">Bolsas</option>
-                  <option value="acessorios">Acessórios</option>
-                  <option value="joias">Jóias</option>
-              </select>
+    <form id="wf-form-cadastro-peca" name="wf-form-cadastro-peca" data-name="cadastro peca" class="form-100">
+      <div class="block-row">
+        <div class="block-column1 column-3">
+          <label for="Nome-look" class="flabel-cadastro">Insira o nome do look</label>
+          <input type="text" class="tfield-cadastro w-input" maxlength="256" name="Nome-look" data-name="Nome Look"
+            placeholder="Insira um nome para o look" id="nomeLook">
+          <label for="Tipo-Peca-2" class="flabel-cadastro">Observações</label>
+          <textarea id="observacoes-look" name="field" placeholder="..." maxlength="5000" data-name="Field"
+            class="tfield-cadastro w-input"></textarea>
+          <label for="Tipo-Peca-2" class="flabel-cadastro">Categorias do Look</label>
+          <select id="categorias-look" name="Tipo-Peca-2" data-name="Tipo Peca 2" required="" multiple=""
+            class="tfield-cadastro w-select">
+            <option value="" selected disabled>Categoria</option>
+            <option value="" disabled>Tipos</option>
+            <option value="calças">Calças</option>
+            <option value="casacos">Casacos</option>
+            <option value="camisas">Camisas</option>
+            <option value="jaquetas">Jaquetas</option>
+            <option value="vestidos">Vestidos</option>
+            <option value="saia">Saia</option>
+            <option value="shorts">Shorts</option>
+            <option value="tops">Tops</option>
+            <option value="tricot">Tricot</option>
+            <option value="" disabled>Praia</option>
+            <option value="biquini">Biquíni</option>
+            <option value="saida-de-praia">Saída de Praia</option>
+            <option disabled>Sapatos</option>
+            <option value="sapatos">Sapatos</option>
+            <option value="salto-alto">Salto Alto</option>
+            <option value="salto-baixo">Salto Baixo</option>
+            <option value="salto-medio">Salto Médio</option>
+            <option value="sem-salto">Sem Salto</option>
+            <option disabled>Acessórios</option>
+            <option value="bolsas">Bolsas</option>
+            <option value="acessorios">Acessórios</option>
+            <option value="joias">Jóias</option>
+          </select>
+        </div>
+        <div class="block-column1 column-vert column3"><label class="flabel-tipo tipo-espaco">Peças que compoem o
+            look</label>
+          <div class="block-conteudo-flex">
+
+            <div class="block-peca peca-porcento peca3 peca-compoe peca-escolhida-look"
+              style="display: none; float: left">
+              <div class="block-menos">-</div>
             </div>
-            <div class="block-column1 column-vert column3"><label class="flabel-tipo tipo-espaco">Peças que compoem o look</label>
-              <div class="block-conteudo-flex">
 
-                <div class="block-peca peca-porcento peca3 peca-compoe peca-escolhida-look" style="display: none; float: left">
-                  <div class="block-menos">-</div>
-                </div>
+            <div class="block-conteudo-flex" id="pecas-escolhidas-look"></div>
 
-                <div class="block-conteudo-flex" id="pecas-escolhidas-look"></div>
-                
-              </div>
-            </div>
-            <div class="block-column1 column-vert column3">
-              <label class="flabel-tipo tipo-espaco menos-espaco">Closet</label>
-              <div class="block-conteudo-flex">
-                  <label for="Tipo-Peca-2" class="flabel-cadastro">Selecione o tipo de peça para compor o Look</label>
-                  <select id="Tipo-Peca-2" class="tfield-cadastro w-select">
-                    <option value="" selected disabled>Categoria</option>
-                    <option value="" disabled>Tipos</option>
-                    <option value="calças">Calças</option>
-                    <option value="casacos">Casacos</option>
-                    <option value="camisas">Camisas</option>
-                    <option value="jaquetas">Jaquetas</option>
-                    <option value="vestidos">Vestidos</option>
-                    <option value="saia">Saia</option>
-                    <option value="shorts">Shorts</option>
-                    <option value="tops">Tops</option>
-                    <option value="tricot">Tricot</option>
-                    <option value="" disabled>Praia</option>
-                    <option value="biquini">Biquíni</option>
-                    <option value="saida-de-praia">Saída de Praia</option>
-                    <option disabled>Sapatos</option>
-                    <option value="sapatos">Sapatos</option>
-                    <option value="salto-alto">Salto Alto</option>
-                    <option value="salto-baixo">Salto Baixo</option>
-                    <option value="salto-medio">Salto Médio</option>
-                    <option value="sem-salto">Sem Salto</option>
-                    <option disabled>Acessórios</option>
-                    <option value="bolsas">Bolsas</option>
-                    <option value="acessorios">Acessórios</option>
-                    <option value="joias">Jóias</option>
-                </select>
-                <div class="block-peca peca-porcento peca3 peca-compoe peca-escolha-look" style="display:none">
-                  <div class="block-menos block-mais">+</div>
-                </div>
-
-                <div class="block-conteudo-flex" id="pecas-escolher-looks"></div>
-
-              </div>
-            </div>
           </div>
-          <input type="submit" value="Concluir" data-wait="Por Favor Aguarde" class="button-add w-button">
-          <button type="button" class="button-add w-button" id="btn-cancelar">Cancelar</button>
-        </form>
+        </div>
+        <div class="block-column1 column-vert column3">
+          <label class="flabel-tipo tipo-espaco menos-espaco">Closet</label>
+          <div class="block-conteudo-flex">
+            <label for="Tipo-Peca-2" class="flabel-cadastro">Selecione o tipo de peça para compor o Look</label>
+            <select id="Tipo-Peca-2" class="tfield-cadastro w-select">
+              <option value="" selected disabled>Categoria</option>
+              <option value="" disabled>Tipos</option>
+              <option value="calças">Calças</option>
+              <option value="casacos">Casacos</option>
+              <option value="camisas">Camisas</option>
+              <option value="jaquetas">Jaquetas</option>
+              <option value="vestidos">Vestidos</option>
+              <option value="saia">Saia</option>
+              <option value="shorts">Shorts</option>
+              <option value="tops">Tops</option>
+              <option value="tricot">Tricot</option>
+              <option value="" disabled>Praia</option>
+              <option value="biquini">Biquíni</option>
+              <option value="saida-de-praia">Saída de Praia</option>
+              <option disabled>Sapatos</option>
+              <option value="sapatos">Sapatos</option>
+              <option value="salto-alto">Salto Alto</option>
+              <option value="salto-baixo">Salto Baixo</option>
+              <option value="salto-medio">Salto Médio</option>
+              <option value="sem-salto">Sem Salto</option>
+              <option disabled>Acessórios</option>
+              <option value="bolsas">Bolsas</option>
+              <option value="acessorios">Acessórios</option>
+              <option value="joias">Jóias</option>
+            </select>
+            <div class="block-peca peca-porcento peca3 peca-compoe peca-escolha-look" style="display:none">
+              <div class="block-menos block-mais">+</div>
+            </div>
+
+            <div class="block-conteudo-flex" id="pecas-escolher-looks"></div>
+
+          </div>
+        </div>
+      </div>
+      <input type="submit" value="Concluir" data-wait="Por Favor Aguarde" class="button-add w-button">
+      <button type="button" class="button-add w-button" id="btn-cancelar">Cancelar</button>
+    </form>
 
   </section>
   <div class="section-inofs">
-      <div class="div-usos">
-        <div class="block-linha">
-          <div class="tblock-usou">Ação</div>
-          <div class="tblock-usou">Data</div>
-        </div>
-        <div class="block-linha linha-acao1" style="display: none">
-          <div class="tblock-usou tblock-2 registro-acao">Adicionou Peça XXX</div>
-          <div class="tblock-usou tblock-2 registro-data">12/12/12</div>
-        </div>
+    <div class="div-usos">
+      <div class="block-linha">
+        <div class="tblock-usou">Ação</div>
+        <div class="tblock-usou">Data</div>
+      </div>
+      <div class="block-linha linha-acao1" style="display: none">
+        <div class="tblock-usou tblock-2 registro-acao">Adicionou Peça XXX</div>
+        <div class="tblock-usou tblock-2 registro-data">12/12/12</div>
+      </div>
+      
+      <div id="registros-historico">
       </div>
     </div>
+  </div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>

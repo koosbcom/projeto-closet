@@ -422,6 +422,9 @@ function categoriaPecasLook(categoria) {
 
       let pecas = result.resultado;
 
+      const ids = pecasLook.map(item => item.peca_id) 
+      pecas = pecas.filter(peca => !ids.includes(peca.peca_id))
+
       $('#pecas-escolher-looks').empty();
 
       for (let i = 0; i < pecas.length; i++) {
@@ -456,7 +459,7 @@ function categoriaPecasLook(categoria) {
 
 function adicionarPecaLook(peca) {
   pecasLook.push(peca);
-
+  categoriaPecasLook($('#Tipo-Peca-2').val())
   $('#pecas-escolhidas-look').empty();
 
   if (pecasLook.length > 0) {
@@ -482,6 +485,7 @@ function adicionarPecaLook(peca) {
 
 function removerPecaLook(index) {
   pecasLook.splice(index, 1);
+  categoriaPecasLook($('#Tipo-Peca-2').val())
 
   $('#pecas-escolhidas-look').empty();
 

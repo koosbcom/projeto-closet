@@ -1,8 +1,10 @@
-const pecasLook = [];
+let pecasLook = [];
 let id = 0
 let pecasLooksADD = []
 let pecasLooksDEL = []
 let historico = []
+let addNohistorico = []
+let pecas = []
 
 $(document).ready(function () {
   recuperarLook()
@@ -20,6 +22,8 @@ const recuperarLook = function () {
       catch (e) {
         historico = []
       }
+
+      console.log(historico)
       preencherPagina(look);
       pararLoading()
 
@@ -53,8 +57,8 @@ const pararLoading = function () {
 }
 
 const preencherPagina = function (look) {
-  const pecas = JSON.parse(look.pecas);
-
+  pecas = JSON.parse(look.pecas);
+  pecasLook = []
   for (let peca of pecas) {
     adicionarPecaLook(peca)
     pecasLooksADD.pop()
@@ -83,6 +87,7 @@ const preencherPagina = function (look) {
 
 
   let categorias = []
+
   try {
     categorias = typeof (look.categorias) === 'string' ? JSON.parse(look.categorias) : look.categorias
   } catch (e) {
@@ -114,11 +119,14 @@ const preencherPagina = function (look) {
     }
   }
 
+  $('#registros-historico').empty()
+
   for (const registro of historico) {
-    $('.linha-acao1 .registro-acao').first().html(`${registro.acao} "${registro.peca}"`)
-    $('.linha-acao1 .registro-data').first().html(`${registro.data}`)
-    $('.linha-acao1').first().clone().appendTo('.div-usos').show()
+    $('.registro-acao').first().html(`${registro.acao} "${registro.peca}"`)
+    $('.registro-data').first().html(`${registro.data}`)
+    $('.linha-acao1').first().clone().appendTo('#registros-historico').show()
   }
+
 };
 
 $.urlParam = function (name) {
@@ -159,7 +167,7 @@ $('#wf-form-cadastro-peca').submit(function (event) {
       acao: 'Adicionou',
       data: moment().format('DD/MM/YYYY')
     }
-    historico.push(item)
+    addNohistorico.push(item)
   }
 
   for (peca of pecasLooksDEL) {
@@ -168,12 +176,15 @@ $('#wf-form-cadastro-peca').submit(function (event) {
       acao: 'Removeu',
       data: moment().format('DD/MM/YYYY')
     }
-    historico.push(item)
+    addNohistorico.push(item)
   }
   pecasLooksADD = []
   pecasLooksDEL = []
 
-  dados['historico'] = JSON.stringify(historico)
+  const historicoAtualizado = [...historico, ...addNohistorico]
+  addNohistorico = []
+
+  dados['historico'] = JSON.stringify(historicoAtualizado)
   alterarDados('/looks/' + id, dados)
     .then(recuperarLook)
     .then((result) => {
@@ -204,15 +215,20 @@ $('#btn-excluir').click(function () {
 })
 
 $('#Tipo-Peca-2').change(function () {
+  recarregarCloset(this.value)
+})
+
+const recarregarCloset = function (value) {
   $('.body-100').loading({
     stoppable: true,
   });
 
-  obterDados('pecas/categoria/' + this.value)
+  obterDados('pecas/categoria/' + value)
     .then(result => {
       $('.body-100').loading('stop');
-
-      const pecas = result.resultado;
+      let pecas = result.resultado;
+      const ids = pecasLook.map(item => item.peca_id) 
+      pecas = pecas.filter(peca => !ids.includes(peca.peca_id))
 
       $('#pecas-escolher-looks').empty();
 
@@ -237,12 +253,17 @@ $('#Tipo-Peca-2').change(function () {
     .catch(err => {
       gerarToast()
     });
-})
+ 
+}
 
 
 function adicionarPecaLook(peca) {
-  pecasLooksADD.push(peca)
+  const indexAdd = pecasLooksADD.findIndex(item => peca.peca_id === item.peca_id)
+  const indexPeca = pecas.findIndex(item => peca.peca_id === item.peca_id)
+  if (indexAdd === -1 && indexPeca === -1) pecasLooksADD.push(peca)
+
   pecasLook.push(peca);
+
   $('#pecas-escolhidas-look').empty();
 
   if (pecasLook.length > 0) {
@@ -263,6 +284,8 @@ function adicionarPecaLook(peca) {
         'removerPecaLook(' + i + ')'
       );
     }
+
+    recarregarCloset($('#Tipo-Peca-2').val())
   }
 }
 
@@ -275,9 +298,9 @@ $('#btn-cancelar').click(function () {
 
 
 function removerPecaLook(index) {
-  const idPecaRemovida = pecasLook[index].peca_id
-  const indexPecaRemovida = pecasLooksADD.findIndex(item => item.peca_id === idPecaRemovida)
-  if (indexPecaRemovida === -1) pecasLooksDEL.push(pecasLook[index])
+  const indexDel = pecasLooksDEL.findIndex(item => item.peca_id === pecasLook[index].peca_id)
+  const indexPeca = pecas.findIndex(item => item.peca_id === pecasLook[index].peca_id)
+  if (indexDel === -1 && indexPeca > -1) pecasLooksDEL.push(pecasLook[index])
 
   pecasLook.splice(index, 1);
 
@@ -301,5 +324,8 @@ function removerPecaLook(index) {
         'removerPecaLook(' + i + ')'
       );
     }
+
+    recarregarCloset($('#Tipo-Peca-2').val())
+
   }
 }
