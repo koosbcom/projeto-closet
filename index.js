@@ -30,36 +30,14 @@ app.use('/uploads/', express.static(path.join(__dirname, 'uploads')));
 
 // Conexao com base de dados
 const db_config = {
+  connectionLimit : 10,
   host: db_host,
   user: db_user,
   password: db_senha,
   database: db_name,
 }
 
-function handleDisconnect() {
-  connection = mysql.createConnection(db_config)
-
-  connection.connect(function (err) {
-    if (err) {
-      console.log('error when connecting to DB:', err);
-      setTimeout(handleDisconnect, 2000)
-    }
-  })
-  
-  connection.on('error', function(err) {
-    
-    console.error('DB error', err);
-    
-    if(err.code === 'PROTOCOL_CONNECTION_LOST') { 
-      handleDisconnect()
-    } else {                          
-      throw err
-    }
-    
-  });
-}
-
-handleDisconnect()
+connection = mysql.createPool(db_config)
 
 app.listen(port, () => {
   console.log('listening on ' + port);
