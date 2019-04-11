@@ -405,11 +405,11 @@ function pecasCategoria(categoria) {
 
 function buscarPecas() {
   let busca = $('#buscaPecas').val();
-
+  if (!busca) return null
   $('.body-100').loading({
     stoppable: true,
   });
-
+  
   obterDados('pecas/marca/' + busca)
     .then(result => {
       $('.body-100').loading('stop');
