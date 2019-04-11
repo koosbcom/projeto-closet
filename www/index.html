@@ -123,7 +123,7 @@
                 <div class="block-column1">
                   
                   <label for="Marca" class="flabel-cadastro">Insira a Marca da Peça</label>
-                  <input type="text" class="tfield-cadastro w-input" id="marca" maxlength="256" name="marca" data-name="Marca" placeholder="Ex: Gucci, Chanel">
+                  <input type="text" class="tfield-cadastro w-input" id="marca" maxlength="256" name="marca" data-name="Marca" placeholder="Ex: Gucci, Chanel" required="">
                   
                   <label for="Tipo-Peca" class="flabel-cadastro">Selecione a Categoria</label>
                   <select id="categoria" name="categoria" data-name="Tipo Peca" required="" class="tfield-cadastro w-select">
@@ -154,7 +154,7 @@
                   </select>
                   
                   <label for="observacoes" class="flabel-cadastro">Observações</label>
-                  <textarea id="observacoes" name="observacoes" placeholder="Observações" maxlength="5000" data-name="Observacoes" class="tfield-cadastro w-input"></textarea>
+                  <textarea id="observacoes" name="observacoes" placeholder="Observações" maxlength="5000" data-name="Observacoes" class="tfield-cadastro w-input" required=""></textarea>
                 </div>
                 
                 <div class="block-column1 column-vert">
@@ -163,14 +163,14 @@
                     <div class="block-fotod">
                       <a href="javascript: adicionarFoto();" class="lblock-adicionar w-inline-block"></a>
                       <a href="#" class="lblock-adicionar fotos-peca w-inline-block foto-preview" style="display: none">
-                        <div class="block-menos" onclick="retirarFoto(0)">-</div>
+                        <!-- <div class="block-menos" onclick="retirarFoto(0)">-</div> -->
                       </a>
                     </div>
                   </div>
                 </div>
 
                 <div id="upload">
-                  <input type="file" name="foto" class="foto-upload" onchange="readURL(this)" style="display: none"> 
+                  <input type="file" name="foto" class="foto-upload" onchange="readURL(this)" style="display: none" required=""> 
                 </div>
                 
               </div>
@@ -286,11 +286,11 @@
               <div class="block-row">
                 <div class="block-column1 column-3">
                   <label for="Nome-look" class="flabel-cadastro">Insira o nome do look</label>
-                  <input type="text" class="tfield-cadastro w-input" maxlength="256" name="Nome-look" data-name="Nome Look" placeholder="Crie um nome para o look" id="nomeLook">
+                  <input type="text" class="tfield-cadastro w-input" maxlength="256" name="Nome-look" data-name="Nome Look" placeholder="Crie um nome para o look" id="nomeLook" required="">
                   <label for="Tipo-Peca-2" class="flabel-cadastro">Observações</label>
-                  <textarea id="observacoesLook" name="field" placeholder="Example Text" maxlength="5000" data-name="Field" class="tfield-cadastro w-input"></textarea>
+                  <textarea id="observacoesLook" name="field" placeholder="Example Text" maxlength="5000" data-name="Field" class="tfield-cadastro w-input" required=""></textarea>
                   <label for="Tipo-Peca-2" class="flabel-cadastro">Categorias do Look</label>
-                  <select id="categoriasLook" name="Tipo-Peca-2" data-name="Tipo Peca 2" required="" multiple="" class="tfield-cadastro w-select">
+                  <select id="categoriasLook" name="Tipo-Peca-2" data-name="Tipo Peca 2" multiple="" required="" class="tfield-cadastro w-select">
                       <option value="" selected disabled>Categoria</option>
                       <option value="" disabled>Tipos</option>
                       <option value="calças">Calças</option>
@@ -332,7 +332,7 @@
                   <label class="flabel-tipo tipo-espaco menos-espaco">Closet</label>
                   <div class="block-conteudo-flex">
                       <label for="Tipo-Peca-2" class="flabel-cadastro">Selecione o tipo de peça para compor o Look</label>
-                      <select id="Tipo-Peca-2" onchange="categoriaPecasLook(this.value)" class="tfield-cadastro w-select">
+                      <select id="Tipo-Peca-2" onchange="categoriaPecasLook(this.value)" class="tfield-cadastro w-select" required="">
                         <option value="" selected disabled>Categoria</option>
                         <option value="" disabled>Tipos</option>
                         <option value="calças">Calças</option>
@@ -366,7 +366,7 @@
 
                   </div>
                 </div>
-              </div><input type="submit" onclick="adicionarLook()" value="Concluir" data-wait="Por Favor Aguarde" class="button-add w-button"></form>
+              </div><input type="submit" value="Concluir" data-wait="Por Favor Aguarde" class="button-add w-button"></form>
           </div>
         </div>
       </div>
@@ -380,7 +380,7 @@
           <div class="block-form" id="mod-viagem-form" data-ix="bloc-form">
               <div class="form-viagem w-form">
                 <form id="add-viagem-form">
-                  <input type="text" class="tfield-cadastro w-input" maxlength="256" name="cidade" data-name="cidade" placeholder="Cidade" id="cidade">
+                  <input type="text" class="tfield-cadastro w-input" maxlength="256" name="cidade" data-name="cidade" placeholder="Cidade" id="cidade" required="">
                   <div class="block-flex-viagem">
                     <input type="text" class="tfield-cadastro cadastro-1 w-input date" maxlength="256" name="data-inicio" data-name="data inicio" placeholder="Data de ida" id="data-inicio" required="">
                     <input type="text" class="tfield-cadastro cadastro-1 w-input date" maxlength="256" name="Data-volta" data-name="Data volta" placeholder="Data de volta" id="data-volta" required="">
@@ -499,7 +499,7 @@
         <div class="tblock-tab">Viagens</div>
       </a>
       <a data-w-tab="Calendario" class="tlink-dash w-inline-block w-tab-link">
-        <div class="tblock-tab" id="abrir-calendario" onclick="mudarMes()">Calendario</div>
+        <div class="tblock-tab" id="abrir-calendario" onclick="mudarMes()">Calendário</div>
       </a>
       <a data-w-tab="Out" onclick="logout()" class="tlink-dash w-inline-block w-tab-link">
         <div class="tblock-tab">SAIR</div>
