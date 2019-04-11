@@ -196,7 +196,7 @@ app.get('/:table/todos/:limite', (req, res) => {
     });
   }
 
-  let query = 'SELECT * FROM ' + table;
+  let query = 'SELECT * FROM ' + table + ' ORDER BY created DESC';
   query += ' LIMIT 0, ' + limite;
 
   connection.query(query, (err, result) => {
@@ -457,6 +457,10 @@ app.post('/pecas', (req, res) => {
       fotos.push(foto);
 
       stream.on('finish', () => {
+        fs.unlink(req.files[i].path, (erro) => {
+          if (erro) console.error(erro)
+        })
+  
         contador++;
 
         // Caso não tenha erros, adiciona na base de dados
