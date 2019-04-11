@@ -6,7 +6,7 @@ function buscarLooks(todos) {
   });
 
   let queryBusca = ``;
-  if (todos) queryBusca = 'looks/todos/1000';
+  if (todos) queryBusca = 'looks/todos/12';
   else queryBusca = 'looks/nome/' + busca;
 
   obterDados(queryBusca)

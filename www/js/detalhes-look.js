@@ -12,10 +12,14 @@ $(document).ready(function () {
 });
 
 const recuperarLook = function () {
+  $('.coluna-pecas-0').empty()
+  $('.coluna-pecas-1').empty()
+  $('.coluna-pecas-2').empty()
   criarLoading()
   id = $.urlParam('id')
   obterDados('looks/id/' + id)
     .then((result) => {
+
       const look = result.resultado[0];
       try {
         historico = look.historico && typeof (look.historico) === 'string' ? JSON.parse(look.historico) : []
@@ -59,6 +63,7 @@ const pararLoading = function () {
 const preencherPagina = function (look) {
   pecas = JSON.parse(look.pecas);
   pecasLook = []
+
   for (let peca of pecas) {
     adicionarPecaLook(peca)
     pecasLooksADD.pop()
@@ -99,7 +104,6 @@ const preencherPagina = function (look) {
       $(item).attr('selected', 'selected')
     }
   })
-
 
   for (let i = 0; i < tamanho; i++) {
     $(`.peca-foto-modelo-${contadorDeColunas}:eq(0)`)
@@ -188,7 +192,6 @@ $('#wf-form-cadastro-peca').submit(function (event) {
 
   const historicoAtualizado = [...historico, ...addNohistorico]
   addNohistorico = []
-
   dados['historico'] = JSON.stringify(historicoAtualizado)
   alterarDados('/looks/' + id, dados)
     .then(recuperarLook)

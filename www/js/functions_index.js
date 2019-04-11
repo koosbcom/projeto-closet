@@ -157,6 +157,8 @@ $('#add-viagem-form').submit(function (evt) {
           showHideTransition: 'slide',
           icon: 'success',
         });
+
+        gerarCalendario(mesSelecionado || data.getMonth(), anoSelecionado || data.getFullYear());
       })
       .catch(err => {
         $('.body-100').loading('stop');
@@ -226,7 +228,7 @@ $(document).ready(function () {
 
 // Adiciona uma nova foto a uma peça
 function adicionarFoto() {
-  $('.foto-upload:eq(' + fotos.length + ')').click();
+  $('.foto-upload').last().click();
 }
 
 // Faz o preview de uma imagem que foi uploadada
@@ -254,9 +256,7 @@ function readURL(input) {
       );
 
     };
-
     reader.readAsDataURL(input.files[0]);
-
     if (fotos.length > 0) retirarFoto(fotos.length - 1)
   }
   
@@ -264,9 +264,9 @@ function readURL(input) {
 
 // Retira uma imagem
 function retirarFoto(posicao) {
-  fotos.splice(posicao, 1);
-  $('.foto-preview:eq(' + posicao + ')').remove();
-  $('.foto-upload:eq(' + posicao + ')').remove();
+  fotos = []
+  $('.foto-preview').first().remove();
+  $('.foto-upload').first().remove();
 }
 
 // Atualiza as viagens na página inicial
@@ -275,9 +275,13 @@ function atualizarViagens() {
     stoppable: true,
   });
 
-  obterDados('viagens/todos/20')
+  obterDados('viagens/todos/100')
     .then(result => {
       $('.body-100').loading('stop');
+      if (result.resultado.length < 1) {
+        $('#mod-viagem-form').show()
+        adicionarViagem()
+      }
       carregarViagens(result);
     })
     .catch(err => {
@@ -550,6 +554,8 @@ function adicionarLook() {
       $('#pecas-escolher-looks').empty()
       pecasLook = []
 
+      buscarLooks(true)
+
     })
     .catch(err => {
       console.error(err)
@@ -561,6 +567,11 @@ function adicionarLook() {
       });
     });
 }
+
+$('#wf-form-cadastro-peca').submit(function(ev) {
+  ev.preventDefault()
+  adicionarLook()
+})
 
 // Prepara os campos para modificar uma viagem
 function modificarViagem(viagem) {

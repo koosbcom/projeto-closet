@@ -3795,6 +3795,9 @@
   font-weight: 900;
   text-align: center;
   text-decoration: none;
+  background: white;
+  border-radius: 50%;
+  border: 1px solid black;
 }
 
 .body-1000 {
