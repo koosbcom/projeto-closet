@@ -11,8 +11,6 @@ $('#login-form').submit(function(evt){
         senha: $('#senha').val()
     };
 
-    console.log('dados', dados);
-
     enviarDados('users/login', dados)
     .then((result) => {
 

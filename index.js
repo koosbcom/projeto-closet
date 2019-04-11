@@ -484,7 +484,6 @@ app.post('/pecas', (req, res) => {
 
 // Adiciona dados em uma tabela
 app.post('/:table', (req, res) => {
-  console.log('POST');
 
   let table = req.params.table;
 
@@ -503,8 +502,6 @@ app.post('/:table', (req, res) => {
   // Caso não tenha erros, adiciona na base de dados
   if (erro === false) {
     let query = criarQueryInsert(dados, table);
-
-    console.log('query: ' + query);
 
     connection.query(query, (err, result) => {
       if (err) {

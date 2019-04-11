@@ -8,6 +8,7 @@ let pecas = []
 
 $(document).ready(function () {
   recuperarLook()
+
 });
 
 const recuperarLook = function () {
@@ -23,7 +24,6 @@ const recuperarLook = function () {
         historico = []
       }
 
-      console.log(historico)
       preencherPagina(look);
       pararLoading()
 
@@ -140,7 +140,6 @@ $.urlParam = function (name) {
 };
 
 $('#btn-editar').click(function () {
-  console.log(`click`)
   $('.section-infos-basicas').hide()
   $('.section-cadastro').hide()
   $('.section-inofs').hide()
@@ -153,6 +152,10 @@ $('#wf-form-cadastro-peca').submit(function (event) {
   event.preventDefault()
   criarLoading()
 
+  const pecaIDs = pecasLook.map(peca => peca.peca_id)
+  pecasLooksADD = pecasLooksADD.filter(peca => pecaIDs.includes(peca.peca_id))
+  pecasLooksDEL = pecasLooksDEL.filter(peca => !pecaIDs.includes(peca.peca_id))
+
   const dados = {
     nome: $('#nomeLook').val(),
     observacoes: $('#observacoes-look').val(),
@@ -163,6 +166,7 @@ $('#wf-form-cadastro-peca').submit(function (event) {
 
   for (peca of pecasLooksADD) {
     const item = {
+      peca_id: peca.peca_id,
       peca: peca.categoria,
       acao: 'Adicionou',
       data: moment().format('DD/MM/YYYY')
@@ -172,6 +176,7 @@ $('#wf-form-cadastro-peca').submit(function (event) {
 
   for (peca of pecasLooksDEL) {
     const item = {
+      peca_id: peca.peca_id,
       peca: peca.categoria,
       acao: 'Removeu',
       data: moment().format('DD/MM/YYYY')
@@ -188,7 +193,6 @@ $('#wf-form-cadastro-peca').submit(function (event) {
   alterarDados('/looks/' + id, dados)
     .then(recuperarLook)
     .then((result) => {
-      console.log(result)
       pararLoading()
       $('.section-infos-basicas').show()
       $('.section-cadastro').show()

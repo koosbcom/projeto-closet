@@ -46,53 +46,69 @@ const pararLoading = function () {
 $('#add-peca').submit(function (evt) {
   evt.preventDefault();
 
-  $('.body-100').loading({
-    stoppable: true,
-  });
+  try {
+    $('.body-100').loading({
+      stoppable: true,
+    });
 
-  let dados = {
-    marca: $('#marca').val(),
-    categoria: $('#categoria').val(),
-    observacoes: $('#observacoes').val(),
-  };
+    let dados = {
+      marca: $('#marca').val(),
+      categoria: $('#categoria').val(),
+      observacoes: $('#observacoes').val(),
+    };
 
-  $('#add-peca').ajaxSubmit({
-    url: '/pecas',
-    type: 'POST',
-    data: { dados: dados },
-    contentType: 'application/json',
-    error: xhr => {
-      $('.body-100').loading('stop');
+    $('#add-peca').ajaxSubmit({
+      url: '/pecas',
+      type: 'POST',
+      data: { dados: dados },
+      contentType: 'application/json',
+      error: xhr => {
+        $('.body-100').loading('stop');
 
-      $.toast({
-        heading: 'Erro',
-        text: 'Não foi possível adicionar a peça. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
-        showHideTransition: 'slide',
-        icon: 'error',
-      });
+        $.toast({
+          heading: 'Erro',
+          text: 'Não foi possível adicionar a peça. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
+          showHideTransition: 'slide',
+          icon: 'error',
+        });
 
-    },
-    success: response => {
-      $('.body-100').loading('stop');
+      },
+      success: response => {
+        $('.body-100').loading('stop');
 
-      $('#marca').val('')
-      $('#categoria').val('')
-      $('#observacoes').val('')
-      $('.foto-preview:eq("0")').remove();
-      $('.foto-upload:eq("0")').remove();
-      fotos = []
+        $('#marca').val('')
+        $('#categoria').val('')
+        $('#observacoes').val('')
+        $('.foto-preview:eq("0")').remove();
+        $('.foto-upload:eq("0")').remove();
+        fotos = []
 
-      $.toast({
-        heading: 'Sucesso',
-        text: 'Sua peça foi adicionada com sucesso.',
-        showHideTransition: 'slide',
-        icon: 'success',
-      });
+        $.toast({
+          heading: 'Sucesso',
+          text: 'Sua peça foi adicionada com sucesso.',
+          showHideTransition: 'slide',
+          icon: 'success',
+        });
 
-      atualizarPecas();
-    },
-  });
+        atualizarPecas();
+      },
+    });
+  } catch (e) {
+    console.log('Clique em concluir')
+  }
 });
+
+$('#form-busca-pecas').submit(function (e) {
+  event.preventDefault()
+  buscarPecas()
+})
+
+$('#form-busca-looks').submit(function (e) {
+  event.preventDefault()
+  buscarLook()
+})
+
+
 
 // Adiciona uma nova viagem no sistema
 $('#add-viagem-form').submit(function (evt) {
@@ -259,10 +275,9 @@ function atualizarViagens() {
     stoppable: true,
   });
 
-  obterDados('viagens/todos/9')
+  obterDados('viagens/todos/20')
     .then(result => {
       $('.body-100').loading('stop');
-
       carregarViagens(result);
     })
     .catch(err => {
@@ -567,8 +582,6 @@ function modificarViagem(viagem) {
 
 // Prepara os campos para adicionar uma viagem
 function adicionarViagem() {
-  console.log('Adicionar Viagem');
-
   $('#cidade').val('');
   $('#data-inicio').val('');
   $('#data-volta').val('');
@@ -587,7 +600,7 @@ function logout() {
 }
 
 function gerarCalendario(mes, ano) {
-  obterDados('viagens/todos/9')
+  obterDados('viagens/todos/20')
     .then(result => {
       const viagens = result.resultado;
 
@@ -653,14 +666,14 @@ function preencherNomeDoEvento(viagens, mes, ano, diaAtual) {
   mes += 1; // Corrigir mês
 
   for (let viagem of viagens) {
-    const dataInicioViagem = new Date(viagem.dataInicio.split('/').reverse().join('-'));
-    const dataVoltaViagem = new Date(viagem.dataVolta.split('/').reverse().join('-'));
-    const dataCompleta = new Date(`${ano}-${mes}-${diaAtual}`);
+    const dataInicioViagem = (viagem.dataInicio.split('/').reverse().join('-'));
+    const dataVoltaViagem = (viagem.dataVolta.split('/').reverse().join('-'));
+    const dataCompleta = (`${ano}-${mes}-${diaAtual}`);
 
     const dataCompletaConvertida = moment(dataCompleta)
 
-    if (dataCompletaConvertida.isSameOrAfter(dataInicioViagem) 
-      && dataCompletaConvertida.isSameOrBefore(dataVoltaViagem) ) {
+    if (dataCompletaConvertida.isSameOrAfter(moment(dataInicioViagem))
+      && dataCompletaConvertida.isSameOrBefore(moment(dataVoltaViagem)) ) {
       nomeEvento += viagem.cidade + ' / ';
     }
   }
