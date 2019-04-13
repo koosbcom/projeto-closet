@@ -60,7 +60,7 @@
 .block-terco.block-fileiraterco {
   width: 23%;
   height: 100%;
-  background-image: url('../images/kp4a97301-1507968.jpg');
+  background-image: url("../images/kp4a97301-1507968.jpg");
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -71,57 +71,57 @@
 }
 
 .block-terco.block-fileiraterco.fieliraterco-grande.terco-materia {
-  background-image: url('../images/prod4.png');
+  background-image: url("../images/prod4.png");
 }
 
 .block-terco.block-fileiraterco.fieliraterco-grande.terco-materia.terco-antes {
   width: 32%;
-  background-image: url('../images/MP-01-min.jpg');
+  background-image: url("../images/MP-01-min.jpg");
 }
 
 .block-terco.block-fileiraterco.fieliraterco-grande.materia2 {
-  background-image: url('../images/prod3.png');
+  background-image: url("../images/prod3.png");
 }
 
 .block-terco.block-fileiraterco.fieliraterco-grande.materia2.terco-antes {
   width: 32%;
-  background-image: url('../images/MP-02-min.jpg');
+  background-image: url("../images/MP-02-min.jpg");
 }
 
 .block-terco.block-fileiraterco.fieliraterco-grande.materia3 {
-  background-image: url('../images/prod5.png');
+  background-image: url("../images/prod5.png");
 }
 
 .block-terco.block-fileiraterco.fieliraterco-grande.materia3.terco-antes {
   width: 32%;
-  background-image: url('../images/MP-03-min.jpg');
+  background-image: url("../images/MP-03-min.jpg");
 }
 
 .block-terco.block-fileiraterco.fieliraterco-grande.materia4 {
-  background-image: url('../images/prod2.png');
+  background-image: url("../images/prod2.png");
 }
 
 .block-terco.block-fileiraterco.fieliraterco-grande.materia4.terco-antes {
   width: 32%;
-  background-image: url('../images/MP-01-min.jpg');
+  background-image: url("../images/MP-01-min.jpg");
 }
 
 .block-terco.block-fileiraterco.fieliraterco-grande.materia5 {
-  background-image: url('../images/prod1.png');
+  background-image: url("../images/prod1.png");
 }
 
 .block-terco.block-fileiraterco.fieliraterco-grande.materia5.terco-antes {
   width: 32%;
-  background-image: url('../images/MP-02-min.jpg');
+  background-image: url("../images/MP-02-min.jpg");
 }
 
 .block-terco.block-fileiraterco.fieliraterco-grande.materia6 {
-  background-image: url('../images/prod4.png');
+  background-image: url("../images/prod4.png");
 }
 
 .block-terco.block-fileiraterco.fieliraterco-grande.materia6.terco-antes {
   width: 32%;
-  background-image: url('../images/MP-03-min.jpg');
+  background-image: url("../images/MP-03-min.jpg");
 }
 
 .block-terco.block-fileiraterco.fieliraterco-grande.fileira-teste {
@@ -130,34 +130,34 @@
 
 .block-terco.block-fileiraterco.block-column {
   width: 100%;
-  background-image: url('../images/SHOOTING-01.jpg');
+  background-image: url("../images/SHOOTING-01.jpg");
   background-position: 50% 0px;
 }
 
 .block-terco.block-fileiraterco.block-column.terco-mt1 {
   display: inline-block;
-  background-image: url('../images/MP-01-min.jpg');
+  background-image: url("../images/MP-01-min.jpg");
 }
 
 .block-terco.block-fileiraterco.block-column.terco-mt02 {
   display: block;
-  background-image: url('../images/MP-02-min.jpg');
+  background-image: url("../images/MP-02-min.jpg");
 }
 
 .block-terco.block-fileiraterco.block-column.terco-mt03 {
-  background-image: url('../images/MP-03-min.jpg');
+  background-image: url("../images/MP-03-min.jpg");
 }
 
 .block-terco.block-fileiraterco.block-column.terco1 {
-  background-image: url('../images/imagem-1.jpg');
+  background-image: url("../images/imagem-1.jpg");
 }
 
 .block-terco.block-fileiraterco.block-column.terco2 {
-  background-image: url('../images/imagem-2.jpg');
+  background-image: url("../images/imagem-2.jpg");
 }
 
 .block-terco.block-fileiraterco.block-column.terco3 {
-  background-image: url('../images/imagem-3.jpg');
+  background-image: url("../images/imagem-3.jpg");
 }
 
 .block-terco.terco-footer {
@@ -186,7 +186,7 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  border-bottom: 1px solid hsla(0, 0%, 40%, .43);
+  border-bottom: 1px solid hsla(0, 0%, 40%, 0.43);
   color: #666;
 }
 
@@ -199,7 +199,7 @@
 
 .navlink-header {
   padding-right: 20px;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #666;
   font-size: 15px;
   font-weight: 500;
@@ -227,7 +227,7 @@
 .tblock-header {
   padding-right: 20px;
   padding-left: 20px;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #666;
   font-size: 15px;
   font-style: normal;
@@ -238,14 +238,14 @@
   width: 20px;
   height: 20px;
   margin-left: 12px;
-  background-image: url('../images/icon_busca_cinza.png');
+  background-image: url("../images/icon_busca_cinza.png");
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .lblock-busca:hover {
-  background-image: url('../images/icon_busca_beje.png');
+  background-image: url("../images/icon_busca_beje.png");
   background-size: contain;
 }
 
@@ -267,7 +267,7 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: url('../images/BANNER-01.jpg');
+  background-image: url("../images/BANNER-01.jpg");
   background-position: 50% 0px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -354,7 +354,7 @@
 .block-big {
   width: 23%;
   height: 100%;
-  background-image: url('../images/43723c2bc29ddf0bdfea32afe69db5be.jpg');
+  background-image: url("../images/43723c2bc29ddf0bdfea32afe69db5be.jpg");
   background-position: 50% 0px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -386,7 +386,7 @@
 
 .block-big.big-column {
   width: 100%;
-  background-image: url('../images/SHOOTING-01.jpg');
+  background-image: url("../images/SHOOTING-01.jpg");
 }
 
 .block-holder2 {
@@ -430,7 +430,7 @@
 .block-meiobloco {
   position: relative;
   height: 44vh;
-  background-image: url('../images/Belstaff_25.jpg');
+  background-image: url("../images/Belstaff_25.jpg");
   background-position: 50% 0px;
   background-size: 683px;
 }
@@ -438,14 +438,14 @@
 .block-meiobloco.meiobloco-grande {
   height: 49%;
   background-color: transparent;
-  background-image: url('../images/43723c2bc29ddf0bdfea32afe69db5be.jpg');
+  background-image: url("../images/43723c2bc29ddf0bdfea32afe69db5be.jpg");
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .block-meiobloco.meiobloco-grande.grande-cover {
-  background-image: url('../images/SHOOTING-01.jpg');
+  background-image: url("../images/SHOOTING-01.jpg");
   background-position: 50% 50%;
 }
 
@@ -559,7 +559,7 @@
 .h3-diferenciais {
   margin-top: 0px;
   margin-bottom: 0px;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #000;
   font-size: 19px;
   font-weight: 700;
@@ -567,7 +567,7 @@
 }
 
 .para-diferenciais {
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #000;
   line-height: 18px;
   font-weight: 500;
@@ -580,7 +580,7 @@
 }
 
 .link-footer {
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #666;
   font-weight: 500;
   text-decoration: none;
@@ -606,7 +606,7 @@
   border-width: 1px;
   border-color: #000;
   background-color: #fff;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #000;
 }
 
@@ -617,7 +617,7 @@
   border-width: 1px;
   border-color: #000;
   background-color: #fff;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #000;
 }
 
@@ -658,7 +658,7 @@
 .drop-link {
   padding-top: 10px;
   padding-left: 20px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #666;
 }
 
@@ -691,8 +691,8 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: -webkit-linear-gradient(270deg, hsla(22, 39%, 60%, .45), hsla(22, 39%, 60%, .45));
-  background-image: linear-gradient(180deg, hsla(22, 39%, 60%, .45), hsla(22, 39%, 60%, .45));
+  background-image: -webkit-linear-gradient(270deg, hsla(22, 39%, 60%, 0.45), hsla(22, 39%, 60%, 0.45));
+  background-image: linear-gradient(180deg, hsla(22, 39%, 60%, 0.45), hsla(22, 39%, 60%, 0.45));
   opacity: 0;
 }
 
@@ -706,8 +706,8 @@
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  background-image: -webkit-linear-gradient(270deg, hsla(0, 0%, 100%, .45), hsla(0, 0%, 100%, .45));
-  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .45), hsla(0, 0%, 100%, .45));
+  background-image: -webkit-linear-gradient(270deg, hsla(0, 0%, 100%, 0.45), hsla(0, 0%, 100%, 0.45));
+  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.45), hsla(0, 0%, 100%, 0.45));
   opacity: 0;
 }
 
@@ -733,8 +733,8 @@
 }
 
 .block-hover.hove-cima.hover-claro {
-  background-image: -webkit-linear-gradient(270deg, hsla(0, 0%, 100%, .45), hsla(0, 0%, 100%, .45));
-  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .45), hsla(0, 0%, 100%, .45));
+  background-image: -webkit-linear-gradient(270deg, hsla(0, 0%, 100%, 0.45), hsla(0, 0%, 100%, 0.45));
+  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.45), hsla(0, 0%, 100%, 0.45));
 }
 
 .h4-hover {
@@ -907,14 +907,14 @@
 }
 
 .slide1-hero {
-  background-image: url('../images/BANNER-01.jpg');
+  background-image: url("../images/BANNER-01.jpg");
   background-position: 50% 0px;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .slide1-hero.hero-cash.hero-01 {
-  background-image: url('../images/BANNER-02-min.jpg');
+  background-image: url("../images/BANNER-02-min.jpg");
 }
 
 .block-slide-flex {
@@ -937,7 +937,7 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: url('../images/BANNER-01.jpg');
+  background-image: url("../images/BANNER-01.jpg");
   background-position: 50% 0px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -961,7 +961,7 @@
 .tblock-bs {
   margin-top: 8px;
   margin-bottom: 8px;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #010101;
   font-size: 18px;
   text-align: center;
@@ -1086,7 +1086,7 @@
   align-items: center;
   border: 1px solid #000;
   background-color: #fff;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #010101;
   font-size: 15px;
   text-align: center;
@@ -1123,7 +1123,7 @@
 
 .para-descricao {
   width: 90%;
-  font-family: 'Avenirltstd roman', sans-serif;
+  font-family: "Avenirltstd roman", sans-serif;
   font-size: 16px;
   line-height: 26px;
 }
@@ -1186,7 +1186,7 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #666;
   text-decoration: none;
 }
@@ -1256,8 +1256,9 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../images/Belstaff_25.jpg');
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../images/Belstaff_25.jpg');
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/Belstaff_25.jpg");
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/Belstaff_25.jpg");
   background-position: 0px 0px, 50% 0px;
   background-size: auto, 683px;
   font-family: Avenirltstd, sans-serif;
@@ -1269,8 +1270,10 @@
 .block-imagem1.block-video-produto {
   width: 100%;
   height: 70vh;
-  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../images/8c3aea_50f61d625d77448caad39f1db6986919-mv2.png_srz_1750_1167_85_22_0.50_1.20_0.png');
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../images/8c3aea_50f61d625d77448caad39f1db6986919-mv2.png_srz_1750_1167_85_22_0.50_1.20_0.png');
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/8c3aea_50f61d625d77448caad39f1db6986919-mv2.png_srz_1750_1167_85_22_0.50_1.20_0.png");
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/8c3aea_50f61d625d77448caad39f1db6986919-mv2.png_srz_1750_1167_85_22_0.50_1.20_0.png");
   background-position: 0px 0px, 50% 0px;
   background-size: auto, cover;
   background-repeat: repeat, no-repeat;
@@ -1282,7 +1285,7 @@
 
 .tblock-producao {
   width: 70%;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #666;
   font-size: 12px;
 }
@@ -1308,7 +1311,7 @@
 
 .para-etapa {
   margin-bottom: 0px;
-  font-family: 'Avenirltstd roman', sans-serif;
+  font-family: "Avenirltstd roman", sans-serif;
   color: #010101;
   font-size: 16px;
   line-height: 21px;
@@ -1384,7 +1387,7 @@
 .block-25 {
   width: 20%;
   height: 100%;
-  background-image: url('../images/example-bg.png');
+  background-image: url("../images/example-bg.png");
   background-position: 0px 0px;
   background-size: 125px;
 }
@@ -1408,11 +1411,11 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: url('../images/prod1.png');
+  background-image: url("../images/prod1.png");
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
-  font-family: 'Avenirltstd roman', sans-serif;
+  font-family: "Avenirltstd roman", sans-serif;
   color: #fff;
   font-size: 32px;
 }
@@ -1436,11 +1439,11 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: url('../images/prod2.png');
+  background-image: url("../images/prod2.png");
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
-  font-family: 'Avenirltstd roman', sans-serif;
+  font-family: "Avenirltstd roman", sans-serif;
   color: #fff;
   font-size: 32px;
 }
@@ -1464,11 +1467,11 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: url('../images/prod3.png');
+  background-image: url("../images/prod3.png");
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
-  font-family: 'Avenirltstd roman', sans-serif;
+  font-family: "Avenirltstd roman", sans-serif;
   color: #fff;
   font-size: 32px;
 }
@@ -1492,11 +1495,11 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: url('../images/prod4.png');
+  background-image: url("../images/prod4.png");
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
-  font-family: 'Avenirltstd roman', sans-serif;
+  font-family: "Avenirltstd roman", sans-serif;
   color: #fff;
   font-size: 32px;
 }
@@ -1520,11 +1523,11 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: url('../images/prod5.png');
+  background-image: url("../images/prod5.png");
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
-  font-family: 'Avenirltstd roman', sans-serif;
+  font-family: "Avenirltstd roman", sans-serif;
   color: #fff;
   font-size: 32px;
 }
@@ -1554,7 +1557,7 @@
 .h1-coming {
   margin-top: 0px;
   margin-bottom: 0px;
-  font-family: 'Avenirltstd roman', sans-serif;
+  font-family: "Avenirltstd roman", sans-serif;
   color: #010101;
   text-align: center;
   letter-spacing: 2px;
@@ -1584,7 +1587,7 @@
 .para-letras {
   width: 50%;
   margin-bottom: 0px;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #010101;
   font-size: 22px;
   line-height: 32px;
@@ -1678,7 +1681,7 @@
 .text-field {
   width: 100%;
   border: 1px solid #010101;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #010101;
 }
 
@@ -1704,7 +1707,7 @@
 }
 
 .tblock-sexo {
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #010101;
 }
 
@@ -1795,20 +1798,20 @@
 .block-seta-left {
   width: 50px;
   height: 100%;
-  background-image: url('../images/1457681245_LEFT_black.png');
+  background-image: url("../images/1457681245_LEFT_black.png");
   background-position: 50% 50%;
   background-size: auto 16px;
   background-repeat: no-repeat;
 }
 
 .block-seta-left.seta-right {
-  background-image: url('../images/1457681245_right_black.png');
+  background-image: url("../images/1457681245_right_black.png");
   background-size: auto 16px;
 }
 
 .block-calendario {
   height: 280px;
-  background-image: url('../images/calendario-jonas.png');
+  background-image: url("../images/calendario-jonas.png");
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
@@ -1822,7 +1825,7 @@
   width: 100%;
   border: 1px solid #000;
   background-color: #fff;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #010101;
   font-size: 14px;
   letter-spacing: 1px;
@@ -1905,8 +1908,8 @@
   height: 94%;
   border-style: solid;
   border-width: 1px;
-  border-color: hsla(22, 39%, 60%, .25);
-  background-image: url('../images/SHOOTING-01.jpg');
+  border-color: hsla(22, 39%, 60%, 0.25);
+  background-image: url("../images/SHOOTING-01.jpg");
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1924,8 +1927,8 @@
   height: 94%;
   border-style: solid;
   border-width: 1px;
-  border-color: hsla(22, 39%, 60%, .25);
-  background-image: url('../images/SHOOTING-01.jpg');
+  border-color: hsla(22, 39%, 60%, 0.25);
+  background-image: url("../images/SHOOTING-01.jpg");
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1944,8 +1947,8 @@
   height: 94%;
   border-style: solid;
   border-width: 1px;
-  border-color: hsla(22, 39%, 60%, .25);
-  background-image: url('../images/SHOOTING-01.jpg');
+  border-color: hsla(22, 39%, 60%, 0.25);
+  background-image: url("../images/SHOOTING-01.jpg");
   background-position: 50% 0px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -2041,6 +2044,246 @@
   background-color: #000;
 }
 
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+.kc_fab_main_btn {
+  background-color: #f44336;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background: #f44336;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 36px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: 0.3s;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.kc_fab_main_btn:focus {
+  transform: scale(1.1);
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.no-display {
+  display: none !important;
+}
+
+@media screen and (max-width: 480px) {
+  .fab {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    box-shadow: 0 6px 10px 0 #666;
+
+    font-size: 40px;
+    line-height: 70px;
+    color: white;
+    text-align: center;
+
+    position: fixed;
+    right: 20px;
+    bottom: 100px;
+
+    transition: all 0.1s ease-in-out;
+  }
+
+  .fab:hover {
+    box-shadow: 0 6px 14px 0 #666;
+    transform: scale(1.05);
+  }
+  .super {
+    margin-bottom: 40% !important;
+  }
+  .h3-categoria.h3-login,
+  .w-input {
+    width: 100% !important;
+  }
+  #login-form {
+    width: 100% !important;
+  }
+  .section-login {
+    display: absolute !important;
+    height: 100%;
+    width: 100% !important;
+  }
+  form {
+    width: 100%;
+  }
+  .h1-add {
+    font-size: 15px !important;
+  }
+  .section-infos-basicas {
+    padding-top: 0px !important;
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+  }
+  .block-voltar {
+    width: 25px !important;
+    height: 25px !important;
+    margin-top: 40px !important;
+    margin-right: 30px !important;
+    background-image: url(../images/arrow_left_white.png);
+    background-position: 50% 50%;
+    background-size: auto 40px;
+    background-repeat: no-repeat;
+  }
+  .section-inofs {
+    padding-right: 0px !important;
+    padding-bottom: 0px !important;
+    padding-left: 0px !important;
+  }
+  .section-cadastro.section-detalhe-look {
+    padding: 10px !important;
+  }
+
+  .block-header {
+    height: 40% !important;
+  }
+  .section-infos-basicas {
+    padding-top: 0px !important;
+    padding-right: 75px;
+    padding-left: 75px;
+  }
+  .column1-100 {
+    height: 0px !important;
+    margin-bottom: 20px;
+  }
+  .tab-menu {
+    position: fixed !important;
+  }
+  .block {
+    display: block !important;
+    left: 0;
+    position: fixed !important;
+    bottom: 8.5% !important;
+    background: #2e2e2e;
+    padding: 20px !important;
+  }
+  .no-mobile {
+    display: none !important;
+  }
+  .no-display {
+    display: flex !important;
+  }
+  .block-categorias {
+    width: 50% !important;
+  }
+  .block-conteudo {
+    margin: 0px !important;
+    width: 100% !important;
+    display: block;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0px !important;
+  }
+  .block-dia {
+    font-size: 12px;
+    padding-top: 8% !important;
+  }
+  .text-block-3,
+  .nome-evento-2 {
+    padding-top: 5% !important;
+  }
+  .h1-mes {
+    font-size: 15px !important;
+    font-weight: 300 !important;
+  }
+  .block-form {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100% !important;
+    height: 300px;
+    margin-bottom: 30px;
+  }
+  .lblock-adicionar {
+    width: 49%;
+    height: 30%;
+    margin-bottom: 15px;
+    border: 1px none #c18e71;
+    background-color: #dadada;
+    background-image: url("../images/basics-15-128.png");
+    background-position: 50% 50%;
+    background-size: 64px;
+    background-repeat: no-repeat;
+  }
+  .section-cadastro {
+    height: 100%;
+    min-height: 100%;
+    padding: 0px !important;
+  }
+  .block-column1 {
+    width: 100% !important;
+    padding: 10px;
+  }
+  .block-row {
+    display: block !important;
+  }
+
+  .filter-cadastro {
+    height: 200px !important;
+  }
+
+  .block-column1.column-vert {
+    width: 45%;
+    height: 50% !important;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+  .block-fotos {
+    width: 100%;
+    margin-bottom: 0px !important;
+  }
+  .btn-add {
+    background: #2e2e2e !important;
+  }
+  .btn-next {
+    margin-left: 10px;
+    width: 100%;
+    padding-left: 10px;
+    width: 40%;
+    height: 45px;
+    background: black !important;
+    color: white;
+    font-family: "Avenirltstd book", sans-serif;
+  }
+  #look2 {
+    display: none;
+  }
+  #look3 {
+    display: none;
+  }
+  .btn-back {
+    padding: 10px;
+    text-align: right !important;
+    font-family: "Avenirltstd book", sans-serif;
+    float: right !important;
+    width: 100%;
+    width: 40%;
+    height: 45px;
+    background: rgb(221, 221, 221) !important;
+    color: rgb(0, 0, 0);
+  }
+  .font-button{
+    text-align: right !important;
+  }
+}
+
 .tcontant {
   width: 100%;
   -webkit-box-ordinal-group: 2;
@@ -2075,8 +2318,8 @@
 }
 
 .tlink-dash:hover {
-  background-color: hsla(0, 0%, 40%, .07);
-  box-shadow: inset 0 0 23px 0 hsla(0, 0%, 100%, .1);
+  background-color: hsla(0, 0%, 40%, 0.07);
+  box-shadow: inset 0 0 23px 0 hsla(0, 0%, 100%, 0.1);
 }
 
 .tlink-dash:active {
@@ -2101,11 +2344,11 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: hsla(0, 0%, 100%, .12);
+  background-color: hsla(0, 0%, 100%, 0.12);
 }
 
 .tblock-tab {
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #d3d3d3;
   text-align: center;
 }
@@ -2120,7 +2363,7 @@
 .block-icone {
   width: 50px;
   height: 50px;
-  background-image: url('../images/icon_busca_beje.png');
+  background-image: url("../images/icon_busca_beje.png");
   background-position: 50% 50%;
   background-size: 90%;
   background-repeat: no-repeat;
@@ -2128,25 +2371,25 @@
 
 .block-icone.icone-pecas {
   margin-bottom: 10px;
-  background-image: url('../images/bolsa_white.png');
+  background-image: url("../images/bolsa_white.png");
   background-size: contain;
 }
 
 .block-icone.icone-looks {
   margin-bottom: 10px;
-  background-image: url('../images/VESTIDO_branco.png');
+  background-image: url("../images/VESTIDO_branco.png");
   background-size: contain;
 }
 
 .block-icone.icone-plan {
   margin-bottom: 10px;
-  background-image: url('../images/if_icon-calendar_211633-white.png');
+  background-image: url("../images/if_icon-calendar_211633-white.png");
   background-size: 98%;
 }
 
 .block-icone.icone-out {
   margin-bottom: 10px;
-  background-image: url('../images/if_common-logout-signout-exit-glyph_763291_white.png');
+  background-image: url("../images/if_common-logout-signout-exit-glyph_763291_white.png");
   background-size: auto 95%;
 }
 
@@ -2207,21 +2450,21 @@
   height: 100%;
   margin-bottom: 0px;
   border: 1px solid #000;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #000;
 }
 
 .sub-button-busca {
   height: 100%;
   background-color: #000;
-  background-image: -webkit-linear-gradient(270deg, rgba(150, 56, 56, .67), hsla(0, 0%, 100%, .25) 0%, transparent);
-  background-image: linear-gradient(180deg, rgba(150, 56, 56, .67), hsla(0, 0%, 100%, .25) 0%, transparent);
+  background-image: -webkit-linear-gradient(270deg, rgba(150, 56, 56, 0.67), hsla(0, 0%, 100%, 0.25) 0%, transparent);
+  background-image: linear-gradient(180deg, rgba(150, 56, 56, 0.67), hsla(0, 0%, 100%, 0.25) 0%, transparent);
   font-family: Avenirltstd, sans-serif;
 }
 
 .sub-button-busca:hover {
-  background-image: -webkit-linear-gradient(270deg, transparent, hsla(0, 0%, 100%, .25) 100%, rgba(150, 56, 56, .67));
-  background-image: linear-gradient(180deg, transparent, hsla(0, 0%, 100%, .25) 100%, rgba(150, 56, 56, .67));
+  background-image: -webkit-linear-gradient(270deg, transparent, hsla(0, 0%, 100%, 0.25) 100%, rgba(150, 56, 56, 0.67));
+  background-image: linear-gradient(180deg, transparent, hsla(0, 0%, 100%, 0.25) 100%, rgba(150, 56, 56, 0.67));
 }
 
 .sub-button-busca:active {
@@ -2319,8 +2562,8 @@
 .flabel-tipo {
   width: 100%;
   margin-bottom: 0px;
-  border-bottom: 1px solid hsla(0, 0%, 40%, .35);
-  font-family: 'Avenirltstd book', sans-serif;
+  border-bottom: 1px solid hsla(0, 0%, 40%, 0.35);
+  font-family: "Avenirltstd book", sans-serif;
   color: #010101;
   font-size: 12px;
   line-height: 12px;
@@ -2361,7 +2604,7 @@
   width: 40px;
   float: right;
   border-color: #666;
-  background-image: url('../images/if_sun-symbol_110801.png');
+  background-image: url("../images/if_sun-symbol_110801.png");
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
@@ -2392,7 +2635,7 @@
   border-style: none;
   border-radius: 0px;
   background-image: none;
-  color: hsla(0, 0%, 100%, .85);
+  color: hsla(0, 0%, 100%, 0.85);
   text-decoration: none;
 }
 
@@ -2407,7 +2650,7 @@
 .block-tipo.per2 {
   width: 40px;
   border-color: #666;
-  background-image: url('../images/if_sunshine-symbol_110800.png');
+  background-image: url("../images/if_sunshine-symbol_110800.png");
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
@@ -2416,7 +2659,7 @@
 .block-tipo.per3 {
   width: 40px;
   border-color: #666;
-  background-image: url('../images/if_moon-symbol_110827.png');
+  background-image: url("../images/if_moon-symbol_110827.png");
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
@@ -2426,7 +2669,7 @@
   width: 40px;
   border-style: solid;
   border-color: #666;
-  background-image: url('../images/if_sun-symbol_110801.png');
+  background-image: url("../images/if_sun-symbol_110801.png");
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
@@ -2434,7 +2677,7 @@
 
 .block-tipo.clima2 {
   width: 40px;
-  background-image: url('../images/if_sun-cloud_110803.png');
+  background-image: url("../images/if_sun-cloud_110803.png");
   background-position: 50% 50%;
   background-size: 76%;
   background-repeat: no-repeat;
@@ -2442,7 +2685,7 @@
 
 .block-tipo.clima3 {
   width: 40px;
-  background-image: url('../images/if_clouds_110838.png');
+  background-image: url("../images/if_clouds_110838.png");
   background-position: 50% 50%;
   background-size: 75%;
   background-repeat: no-repeat;
@@ -2450,7 +2693,7 @@
 
 .block-tipo.clima4 {
   width: 40px;
-  background-image: url('../images/if_snow_110812.png');
+  background-image: url("../images/if_snow_110812.png");
   background-position: 50% 50%;
   background-size: 75%;
   background-repeat: no-repeat;
@@ -2458,7 +2701,7 @@
 
 .block-tipo.clima5 {
   width: 40px;
-  background-image: url('../images/if_snow-2_110818.png');
+  background-image: url("../images/if_snow-2_110818.png");
   background-position: 50% 50%;
   background-size: 75%;
   background-repeat: no-repeat;
@@ -2466,70 +2709,70 @@
 
 .block-tipo.ocasiao1 {
   width: 40px;
-  background-image: url('../images/498953-64.png');
+  background-image: url("../images/498953-64.png");
   background-position: 0px 0px;
   background-size: contain;
 }
 
 .block-tipo.ocasiao2 {
   width: 40px;
-  background-image: url('../images/498965-128.png');
+  background-image: url("../images/498965-128.png");
   background-position: 0px 0px;
   background-size: cover;
 }
 
 .block-tipo.ocasiao3 {
   width: 40px;
-  background-image: url('../images/498968-128.png');
+  background-image: url("../images/498968-128.png");
   background-position: 0px 0px;
   background-size: contain;
 }
 
 .block-tipo.ocasiao4 {
   width: 40px;
-  background-image: url('../images/498942-128.png');
+  background-image: url("../images/498942-128.png");
   background-position: 0px 0px;
   background-size: contain;
 }
 
 .block-tipo.ocasiao5 {
   width: 40px;
-  background-image: url('../images/498964-128.png');
+  background-image: url("../images/498964-128.png");
   background-position: 0px 0px;
   background-size: contain;
 }
 
 .block-tipo.ocasiao6 {
   width: 40px;
-  background-image: url('../images/if_blouse_1845768.png');
+  background-image: url("../images/if_blouse_1845768.png");
   background-position: 0px 0px;
   background-size: contain;
 }
 
 .block-tipo.ocasiao7 {
   width: 40px;
-  background-image: url('../images/498941-128.png');
+  background-image: url("../images/498941-128.png");
   background-position: 0px 0px;
   background-size: contain;
 }
 
 .block-tipo.ocasiao8 {
   width: 40px;
-  background-image: url('../images/1845792-128.png');
+  background-image: url("../images/1845792-128.png");
   background-position: 0px 0px;
   background-size: contain;
 }
 
 .block-tipo.ocasiao9 {
   width: 40px;
-  background-image: url('../images/1845806-128.png');
+  background-image: url("../images/1845806-128.png");
   background-position: 0px 0px;
   background-size: contain;
 }
 
 .block-tipo.oca1 {
   width: 40px;
-  background-image: url('../images/498953-64.png');
+  background-image: url("../images/498953-64.png");
   background-position: 50% 50%;
   background-size: 32px;
   background-repeat: no-repeat;
@@ -2537,7 +2780,7 @@
 
 .block-tipo.oca2 {
   width: 40px;
-  background-image: url('../images/498964-128.png');
+  background-image: url("../images/498964-128.png");
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
@@ -2569,8 +2812,8 @@
   -webkit-align-content: flex-start;
   -ms-flex-line-pack: start;
   align-content: flex-start;
-  border-top: 1px solid hsla(22, 39%, 60%, .25);
-  box-shadow: inset -12px 0 9px 0 hsla(22, 39%, 60%, .25);
+  border-top: 1px solid hsla(22, 39%, 60%, 0.25);
+  box-shadow: inset -12px 0 9px 0 hsla(22, 39%, 60%, 0.25);
 }
 
 .block-pecas.blockp-detalhes {
@@ -2649,7 +2892,7 @@
 }
 
 .h3-titulo.h3-menor {
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #666;
   font-size: 15px;
 }
@@ -2673,16 +2916,16 @@
   padding-bottom: 7px;
   border: 1px solid #c18e71;
   background-color: #fff;
-  background-image: -webkit-linear-gradient(270deg, transparent, rgba(0, 0, 0, .07) 100%, #000);
-  background-image: linear-gradient(180deg, transparent, rgba(0, 0, 0, .07) 100%, #000);
-  font-family: 'Avenirltstd book', sans-serif;
+  background-image: -webkit-linear-gradient(270deg, transparent, rgba(0, 0, 0, 0.07) 100%, #000);
+  background-image: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.07) 100%, #000);
+  font-family: "Avenirltstd book", sans-serif;
   color: #c18e71;
   text-align: center;
 }
 
 .lbutton-adicionar:hover {
-  background-image: -webkit-linear-gradient(270deg, #000, rgba(0, 0, 0, .07) 0%, transparent);
-  background-image: linear-gradient(180deg, #000, rgba(0, 0, 0, .07) 0%, transparent);
+  background-image: -webkit-linear-gradient(270deg, #000, rgba(0, 0, 0, 0.07) 0%, transparent);
+  background-image: linear-gradient(180deg, #000, rgba(0, 0, 0, 0.07) 0%, transparent);
 }
 
 .lbutton-adicionar:active {
@@ -2717,7 +2960,7 @@
 .lblock-editar {
   width: 25px;
   height: 25px;
-  background-image: url('../images/Icone-SpotMe-Editar-Preto.png');
+  background-image: url("../images/Icone-SpotMe-Editar-Preto.png");
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
@@ -2749,16 +2992,16 @@
   width: 45%;
   border: 2px solid #666;
   background-color: transparent;
-  background-image: -webkit-linear-gradient(270deg, transparent, rgba(0, 0, 0, .05));
-  background-image: linear-gradient(180deg, transparent, rgba(0, 0, 0, .05));
-  font-family: 'Avenirltstd book', sans-serif;
+  background-image: -webkit-linear-gradient(270deg, transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.05));
+  font-family: "Avenirltstd book", sans-serif;
   color: #000;
   text-align: center;
 }
 
 .lbutton-looks:hover {
-  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .05), transparent);
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, .05), transparent);
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, 0.05), transparent);
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.05), transparent);
 }
 
 .lbutton-looks:active {
@@ -2768,8 +3011,8 @@
 .lbutton-looks.look-usar {
   border-color: #000;
   background-color: #010101;
-  background-image: -webkit-linear-gradient(270deg, hsla(0, 0%, 100%, .05), transparent);
-  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .05), transparent);
+  background-image: -webkit-linear-gradient(270deg, hsla(0, 0%, 100%, 0.05), transparent);
+  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.05), transparent);
   color: #fff;
 }
 
@@ -2828,10 +3071,14 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: hsla(0, 0%, 40%, .02);
+  background-color: hsla(0, 0%, 40%, 0.02);
 }
 
-.block-semana-1, .block-semana-2, .block-semana-3, .block-semana-4, .block-semana-5 {
+.block-semana-1,
+.block-semana-2,
+.block-semana-3,
+.block-semana-4,
+.block-semana-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2844,7 +3091,6 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
-
 
 .block-dia {
   display: -webkit-box;
@@ -2864,7 +3110,7 @@
   justify-content: space-between;
   border-style: solid;
   border-width: 1px;
-  border-color: hsla(0, 0%, 40%, .35);
+  border-color: hsla(0, 0%, 40%, 0.35);
   background-color: #fff;
 }
 
@@ -2910,7 +3156,7 @@
   -ms-flex-align: center;
   align-items: center;
   direction: ltr;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #fff;
   text-align: center;
   text-decoration: none;
@@ -2948,7 +3194,7 @@
 .blockmais {
   width: 50px;
   height: 50px;
-  background-image: url('../images/if_add_134224.png');
+  background-image: url("../images/if_add_134224.png");
   background-position: 0px 0px;
   background-size: contain;
 }
@@ -2962,7 +3208,7 @@
   height: 50px;
   margin-right: 50px;
   background-color: #fff;
-  background-image: url('../images/if_add_134224.png');
+  background-image: url("../images/if_add_134224.png");
   background-position: 0px 0px;
   background-size: contain;
 }
@@ -2988,7 +3234,7 @@
 
 .h-titulo {
   margin-top: 50px;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   text-align: center;
 }
 
@@ -2999,7 +3245,7 @@
   margin-left: auto;
   border-radius: 100px;
   background-color: #000;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   font-size: 16px;
   text-align: center;
 }
@@ -3077,14 +3323,14 @@
 .block-header {
   height: 100%;
   padding: 0px 76px;
-  border-bottom: 1px solid hsla(22, 39%, 60%, .25);
+  border-bottom: 1px solid hsla(22, 39%, 60%, 0.25);
   background-color: #000;
 }
 
 .block-voltar {
   width: 75px;
   height: 75px;
-  background-image: url('../images/arrow_left_white.png');
+  background-image: url("../images/arrow_left_white.png");
   background-position: 50% 50%;
   background-size: auto 40px;
   background-repeat: no-repeat;
@@ -3162,8 +3408,8 @@
   margin-bottom: 25px;
   border-style: solid;
   border-width: 1px;
-  border-color: hsla(0, 0%, 40%, .35);
-  font-family: 'Avenirltstd book', sans-serif;
+  border-color: hsla(0, 0%, 40%, 0.35);
+  font-family: "Avenirltstd book", sans-serif;
   font-size: 15px;
   font-weight: 700;
 }
@@ -3175,7 +3421,7 @@
 .flabel-cadastro {
   width: 100%;
   margin-bottom: 0px;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   font-size: 12px;
   font-weight: 700;
 }
@@ -3204,7 +3450,7 @@
   margin-bottom: 15px;
   border: 1px none #c18e71;
   background-color: #dadada;
-  background-image: url('../images/basics-15-128.png');
+  background-image: url("../images/basics-15-128.png");
   background-position: 50% 50%;
   background-size: 64px;
   background-repeat: no-repeat;
@@ -3215,7 +3461,7 @@
   width: 49%;
   height: 220px;
   border-style: none;
-  background-image: url('../images/BANNER-01.jpg');
+  background-image: url("../images/BANNER-01.jpg");
   background-size: cover;
 }
 
@@ -3243,8 +3489,8 @@
   padding-top: 12px;
   padding-bottom: 12px;
   background-color: #000;
-  font-family: 'Avenirltstd book', sans-serif;
-  color: hsla(0, 0%, 100%, .85);
+  font-family: "Avenirltstd book", sans-serif;
+  color: hsla(0, 0%, 100%, 0.85);
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -3269,7 +3515,7 @@
 
 .slide1-peca {
   background-color: #fff;
-  background-image: url('../images/BANNER-01.jpg');
+  background-image: url("../images/BANNER-01.jpg");
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
@@ -3316,9 +3562,9 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  border-bottom: 1px solid hsla(22, 39%, 60%, .55);
+  border-bottom: 1px solid hsla(22, 39%, 60%, 0.55);
   background-color: #000;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   color: #fff;
 }
 
@@ -3340,7 +3586,7 @@
 }
 
 .block-linha.linha-acao1 {
-  border-bottom: 1px solid hsla(22, 39%, 60%, .58);
+  border-bottom: 1px solid hsla(22, 39%, 60%, 0.58);
   background-color: #fff;
 }
 
@@ -3365,8 +3611,8 @@
 
 .h5-notas {
   margin-top: 0px;
-  border-bottom: 1px solid hsla(0, 0%, 40%, .35);
-  font-family: 'Avenirltstd book', sans-serif;
+  border-bottom: 1px solid hsla(0, 0%, 40%, 0.35);
+  font-family: "Avenirltstd book", sans-serif;
   font-size: 12px;
   line-height: 12px;
 }
@@ -3445,7 +3691,7 @@
 .h3-categoria {
   margin-top: 10px;
   margin-bottom: 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, .18);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
   font-family: Avenirltstd, sans-serif;
   font-size: 20px;
   font-weight: 800;
@@ -3461,7 +3707,7 @@
 
 .tblock-lista {
   margin-bottom: 5px;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
 }
 
 .submit-busca {
@@ -3474,14 +3720,14 @@
 
 .tfield-busca-closet {
   width: 100%;
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
 }
 
 .block-peca {
   width: 100%;
   height: 300px;
   margin-bottom: 60px;
-  background-image: url('../images/roupa.jpg');
+  background-image: url("../images/roupa.jpg");
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
@@ -3501,30 +3747,30 @@
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  background-image: url('../images/396fa1dba7425867c4e7c09ab81e494d.jpg');
+  background-image: url("../images/396fa1dba7425867c4e7c09ab81e494d.jpg");
 }
 
 .block-peca.peca2 {
-  background-image: url('../images/boys-hooded-jumper.jpg');
+  background-image: url("../images/boys-hooded-jumper.jpg");
 }
 
 .block-peca.peca3 {
-  background-image: url('../images/big_188e8306-4980-4bf4-9ee1-2ad4b2524cca.jpg');
+  background-image: url("../images/big_188e8306-4980-4bf4-9ee1-2ad4b2524cca.jpg");
 }
 
 .block-peca.peca3.teste {
-  background-image: url('../images/big_188e8306-4980-4bf4-9ee1-2ad4b2524cca.jpg');
+  background-image: url("../images/big_188e8306-4980-4bf4-9ee1-2ad4b2524cca.jpg");
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .block-peca.look2 {
-  background-image: url('../images/roupa-para-viagens.jpg');
+  background-image: url("../images/roupa-para-viagens.jpg");
 }
 
 .block-peca.look3 {
-  background-image: url('../images/33e3dab594712d54e6a9e9eacaafb4c7.jpg');
+  background-image: url("../images/33e3dab594712d54e6a9e9eacaafb4c7.jpg");
 }
 
 .block-peca.peca-porcento {
@@ -3610,7 +3856,7 @@
 .block-peca.peca-peca {
   height: 150px;
   margin-bottom: 0px;
-  background-image: url('../images/396fa1dba7425867c4e7c09ab81e494d.jpg');
+  background-image: url("../images/396fa1dba7425867c4e7c09ab81e494d.jpg");
 }
 
 .block-peca.peca-lookk {
@@ -3626,7 +3872,7 @@
   height: 20px;
   border-style: solid;
   border-width: 1px;
-  border-color: hsla(0, 0%, 40%, .35);
+  border-color: hsla(0, 0%, 40%, 0.35);
   border-radius: 50px;
   text-decoration: none;
 }
@@ -3644,7 +3890,7 @@
   height: 30px;
   border-style: solid;
   border-width: 1px;
-  border-color: hsla(0, 0%, 40%, .35);
+  border-color: hsla(0, 0%, 40%, 0.35);
   border-radius: 100px;
   text-decoration: none;
 }
@@ -3669,7 +3915,7 @@
   align-items: center;
   border-style: solid;
   border-width: 1px;
-  border-color: hsla(0, 0%, 40%, .35);
+  border-color: hsla(0, 0%, 40%, 0.35);
   border-radius: 20px;
   font-family: Avenirltstd, sans-serif;
   color: #000;
@@ -3724,7 +3970,7 @@
 .lblock-mes {
   width: 40px;
   height: 40px;
-  background-image: url('../images/arrow_left_white.png');
+  background-image: url("../images/arrow_left_white.png");
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
@@ -3769,7 +4015,7 @@
 }
 
 .h4-fonte {
-  font-family: 'Avenirltstd book', sans-serif;
+  font-family: "Avenirltstd book", sans-serif;
   font-size: 14px;
   font-weight: 400;
   text-transform: none;
@@ -4166,80 +4412,83 @@ html.w-mod-js *[data-ix="bloc-form"] {
 }
 
 @font-face {
-  font-family: 'Circularpro';
-  src: url('../fonts/CircularPro-Bold.otf') format('opentype');
+  font-family: "Circularpro";
+  src: url("../fonts/CircularPro-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Circularpro';
-  src: url('../fonts/CircularPro-BlackItalic.otf') format('opentype');
+  font-family: "Circularpro";
+  src: url("../fonts/CircularPro-BlackItalic.otf") format("opentype");
   font-weight: 900;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Circularpro';
-  src: url('../fonts/CircularPro-Medium.otf') format('opentype');
+  font-family: "Circularpro";
+  src: url("../fonts/CircularPro-Medium.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Circularpro';
-  src: url('../fonts/CircularPro-MediumItalic.otf') format('opentype');
+  font-family: "Circularpro";
+  src: url("../fonts/CircularPro-MediumItalic.otf") format("opentype");
   font-weight: 500;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Avenirltstd';
-  src: url('../fonts/AvenirLTStd-Black.otf') format('opentype'), url('../fonts/AvenirLTStd-Heavy.otf') format('opentype');
+  font-family: "Avenirltstd";
+  src: url("../fonts/AvenirLTStd-Black.otf") format("opentype"),
+    url("../fonts/AvenirLTStd-Heavy.otf") format("opentype");
   font-weight: 900;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Avenirltstd';
-  src: url('../fonts/AvenirLTStd-BlackOblique.otf') format('opentype'), url('../fonts/AvenirLTStd-HeavyOblique.otf') format('opentype');
+  font-family: "Avenirltstd";
+  src: url("../fonts/AvenirLTStd-BlackOblique.otf") format("opentype"),
+    url("../fonts/AvenirLTStd-HeavyOblique.otf") format("opentype");
   font-weight: 900;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Avenirltstd';
-  src: url('../fonts/AvenirLTStd-BookOblique.otf') format('opentype'), url('../fonts/AvenirLTStd-Oblique.otf') format('opentype');
+  font-family: "Avenirltstd";
+  src: url("../fonts/AvenirLTStd-BookOblique.otf") format("opentype"),
+    url("../fonts/AvenirLTStd-Oblique.otf") format("opentype");
   font-weight: 400;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Avenirltstd book';
-  src: url('../fonts/AvenirLTStd-Book.otf') format('opentype');
+  font-family: "Avenirltstd book";
+  src: url("../fonts/AvenirLTStd-Book.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Avenirltstd';
-  src: url('../fonts/AvenirLTStd-Light.otf') format('opentype');
+  font-family: "Avenirltstd";
+  src: url("../fonts/AvenirLTStd-Light.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Avenirltstd';
-  src: url('../fonts/AvenirLTStd-Medium.otf') format('opentype');
+  font-family: "Avenirltstd";
+  src: url("../fonts/AvenirLTStd-Medium.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Avenirltstd';
-  src: url('../fonts/AvenirLTStd-MediumOblique.otf') format('opentype');
+  font-family: "Avenirltstd";
+  src: url("../fonts/AvenirLTStd-MediumOblique.otf") format("opentype");
   font-weight: 500;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Avenirltstd';
-  src: url('../fonts/AvenirLTStd-LightOblique.otf') format('opentype');
+  font-family: "Avenirltstd";
+  src: url("../fonts/AvenirLTStd-LightOblique.otf") format("opentype");
   font-weight: 300;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Avenirltstd roman';
-  src: url('../fonts/AvenirLTStd-Roman.otf') format('opentype');
+  font-family: "Avenirltstd roman";
+  src: url("../fonts/AvenirLTStd-Roman.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
 }
