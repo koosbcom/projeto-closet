@@ -33,7 +33,6 @@ const recuperarLook = function () {
 
     })
     .catch((error) => {
-      console.error(error);
       gerarToast();
     });
 }
@@ -98,7 +97,6 @@ const preencherPagina = function (look) {
   } catch (e) {
     categorias.push(look.categorias)
   }
-
   $('#categorias-look option').each(function (index, item) {
     if (categorias.includes($(item).val())) {
       $(item).attr('selected', 'selected')
@@ -216,7 +214,6 @@ $('#btn-excluir').click(function () {
       window.location = '/index.html'
 
     }).catch((error) => {
-      console.error(error)
       gerarToast()
     })
 })
