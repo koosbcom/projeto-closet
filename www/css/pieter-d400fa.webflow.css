@@ -1898,7 +1898,9 @@
   width: 70%;
   height: 90%;
 }
-
+.input-full, .w-input{
+  width: 100% !important;
+}
 .block-image-absoluto.imagem1 {
   left: 0px;
   top: 0px;
@@ -2079,6 +2081,9 @@
 }
 
 @media screen and (max-width: 480px) {
+  .form-block1 {
+    width: 90% !important;
+  }
   .fab {
     width: 50px;
     height: 50px;
@@ -2177,7 +2182,7 @@
     display: flex !important;
   }
   .block-categorias {
-    width: 50% !important;
+    width: 80% !important;
   }
   .block-conteudo {
     margin: 0px !important;
@@ -2253,14 +2258,42 @@
     background: #2e2e2e !important;
   }
   .btn-next {
-    margin-left: 10px;
-    width: 100%;
-    padding-left: 10px;
-    width: 40%;
+    text-align: center !important;
+    width: 35%;
     height: 45px;
     background: black !important;
     color: white;
     font-family: "Avenirltstd book", sans-serif;
+    position: fixed !important;
+    right: 0;
+    padding-left: 20px;
+  }
+  .section-edit {
+     padding-right: 10px !important; 
+     padding-bottom: 10px !important;
+     padding-left: 10px !important;
+  }
+  .titulo-aba{
+    font-family: "Avenirltstd book", sans-serif;
+    text-align: center;
+    padding-left: 20px;
+    font-weight: 300;
+    font-size: 15px;
+  }
+  .btn-back {
+    font-family: "Avenirltstd book", sans-serif;
+    width: 25%;
+    text-align: center !important;
+    height: 45px;
+    left: 0;
+    position: fixed !important;
+    bottom: 18.5% !important;
+    background: #0000002a;
+    color: white !important;
+    padding-left: 20px;
+  }
+  .tabs-closey{
+    background: white !important;
   }
   #look2 {
     display: none;
@@ -2268,17 +2301,7 @@
   #look3 {
     display: none;
   }
-  .btn-back {
-    padding: 10px;
-    text-align: right !important;
-    font-family: "Avenirltstd book", sans-serif;
-    float: right !important;
-    width: 100%;
-    width: 40%;
-    height: 45px;
-    background: rgb(221, 221, 221) !important;
-    color: rgb(0, 0, 0);
-  }
+
   .font-button{
     text-align: right !important;
   }
