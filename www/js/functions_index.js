@@ -94,7 +94,7 @@ $('#add-peca').submit(function (evt) {
       },
     });
   } catch (e) {
-    console.log('Clique em concluir')
+    gerarToast()
   }
 });
 
@@ -163,8 +163,6 @@ $('#add-viagem-form').submit(function (evt) {
       .catch(err => {
         $('.body-100').loading('stop');
 
-        console.error(err);
-
         $.toast({
           heading: 'Erro',
           text: 'Não foi possível se conectar ao servidor. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
@@ -195,8 +193,6 @@ $('#add-viagem-form').submit(function (evt) {
       })
       .catch(err => {
         $('.body-100').loading('stop');
-
-        console.error(err);
 
         $.toast({
           heading: 'Erro',
@@ -287,8 +283,6 @@ function atualizarViagens() {
     .catch(err => {
       $('.body-100').loading('stop');
 
-      console.error(err);
-
       $.toast({
         heading: 'Erro',
         text: 'Não foi possível se conectar ao servidor. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
@@ -305,8 +299,6 @@ function atualizarPecas() {
       carregarPecas(result);
     })
     .catch(err => {
-      console.error(err);
-
       $.toast({
         heading: 'Erro',
         text: 'Não foi possível se conectar ao servidor. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
@@ -392,8 +384,6 @@ function pecasCategoria(categoria) {
     .catch(err => {
       $('.body-100').loading('stop');
 
-      console.error(err);
-
       $.toast({
         heading: 'Erro',
         text: 'Não foi possível se conectar ao servidor. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
@@ -418,8 +408,6 @@ function buscarPecas() {
     })
     .catch(err => {
       $('.body-100').loading('stop');
-
-      console.error(err);
 
       $.toast({
         heading: 'Erro',
@@ -558,7 +546,6 @@ function adicionarLook() {
 
     })
     .catch(err => {
-      console.error(err)
       $.toast({
         heading: 'Erro',
         text: 'Não foi possível se conectar ao servidor. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
@@ -632,7 +619,6 @@ function gerarCalendario(mes, ano) {
       }
     })
     .catch(error => {
-      console.error(error);
       $.toast({
         heading: 'Erro',
         text: 'Não foi possível se conectar ao servidor. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',

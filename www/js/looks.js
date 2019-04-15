@@ -15,7 +15,6 @@ function buscarLooks(todos) {
       carregarLooks(result);
     })
     .catch((err) => {
-      console.error(err)
       $('.body-100').loading('stop');
 
       $.toast({
@@ -92,8 +91,6 @@ function looksCategoria(categoria) {
     .catch((err) => {
       $('.body-100').loading('stop');
 
-      console.error(err);
-
       $.toast({
         heading: 'Erro',
         text:
@@ -130,6 +127,6 @@ function buscarLook() {
 
 function detalharLook (event) {
   const idLook = event.toElement.parentElement.children[0].innerHTML
-  window.location = "/detalhes-look.html?id=" + idLook
+  window.location = encodeURI("/detalhes-look.html?id=" + idLook)
 }
 

@@ -36,8 +36,6 @@ $('#login-form').submit(function(evt){
     })
     .catch((err) => {
 
-        console.error(err);
-
         $.toast({
             heading: 'Erro',
             text: 'Não foi possível conectar ao servidor. Certifique-se que sua internet está funcionando normalmente e tente novamente mais tarde.',
