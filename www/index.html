@@ -126,7 +126,7 @@
             
             <form id="add-peca" enctype="multipart/form-data">
               <div class="block-row">
-                <div class="no-display"><br><br><br></div>
+                <div class="no-display"><br><br><br></div> 
                 <div class="block-column1">
                   
                   <label for="Marca" class="flabel-cadastro">Insira a Marca da Peça</label>
@@ -134,8 +134,8 @@
                   
                   <label for="Tipo-Peca" class="flabel-cadastro">Selecione a Categoria</label>
                   <select id="categoria" name="categoria" data-name="Tipo Peca" required="" class="tfield-cadastro w-select">
-                    <option disabled>Categoria</option>
-                    <option disabled>Tipos</option>
+                    <option value="" selected disabled>Categoria</option>
+                    <option value="" disabled>Tipos</option>
                     <option value="calças">Calças</option>
                     <option value="casacos">Casacos</option>
                     <option value="camisas">Camisas</option>
@@ -145,7 +145,7 @@
                     <option value="shorts">Shorts</option>
                     <option value="tops">Tops</option>
                     <option value="tricot">Tricot</option>
-                    <option disabled>Praia</option>
+                    <option value="" disabled>Praia</option>
                     <option value="biquini">Biquíni</option>
                     <option value="saida-de-praia">Saída de Praia</option>
                     <option disabled>Sapatos</option>
@@ -170,6 +170,7 @@
                     <div class="block-fotod">
                       <a href="javascript: adicionarFoto();" class="lblock-adicionar w-inline-block"></a>
                       <a href="#" class="lblock-adicionar fotos-peca w-inline-block foto-preview" style="display: none">
+                        <!-- <div class="block-menos" onclick="retirarFoto(0)">-</div> -->
                       </a>
                     </div>
                   </div>
@@ -310,8 +311,8 @@
                 
                   <label for="Tipo-Peca-2" class="flabel-cadastro">Categorias do Look</label>
                   <select id="categoriasLook" name="Tipo-Peca-2" data-name="Tipo Peca 2" multiple="" required="" class="tfield-cadastro w-select">
-                      <option disabled>Categoria</option>
-                      <option disabled>Tipos</option>
+                      <option value="" selected disabled>Categoria</option>
+                      <option value="" disabled>Tipos</option>
                       <option value="calças">Calças</option>
                       <option value="casacos">Casacos</option>
                       <option value="camisas">Camisas</option>
@@ -321,7 +322,7 @@
                       <option value="shorts">Shorts</option>
                       <option value="tops">Tops</option>
                       <option value="tricot">Tricot</option>
-                      <option disabled>Praia</option>
+                      <option value="" disabled>Praia</option>
                       <option value="biquini">Biquíni</option>
                       <option value="saida-de-praia">Saída de Praia</option>
                       <option disabled>Sapatos</option>
@@ -393,7 +394,9 @@
                   </div>
                 <button type="button" 
                         onclick="esconderPasso1('look2');esconderPasso2('look3');mostrarPrimeiroPasso('dados-do-look');" 
-                        class="no-display btn-back"> <div class="font-button"><i class="fas fa-long-arrow-alt-left"></i> Voltar</div>
+                        class="no-display btn-back"> <div class="font-button"><i class="fas fa-long-arrow-alt-left"></i>
+                        <div class="txt-voltar">Voltar</div>
+                        </div>
                 </button>
                 </div>
               </div>
@@ -554,8 +557,8 @@
           <div class="tblock-tab">SAIR</div>
         </a>
 
-        <a data-w-tab="Out" onclick="logout()" class="no-display tlink-dash w-inline-block w-tab-link ">
-            <div class="tblock-tab"><i class="fas fa-sign-out-alt"></i> </div>
+        <a data-w-tab="Out" onclick="logout()" class="no-display tlink-dash w-inline-block w-tab-link tab-logout">
+            <div class="tblock-tab"><i class="fas fa-sign-out-alt"></i></div>
         </a>
 
       </div>
