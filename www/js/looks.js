@@ -127,6 +127,7 @@ function buscarLook() {
 
 function detalharLook (event) {
   const idLook = event.toElement.parentElement.children[0].innerHTML
-  window.location = encodeURI("/detalhes-look.html?id=" + idLook)
+  const id = idLook.trim()
+  window.location = encodeURI("/detalhes-look.html?id=" + parseInt(id))
 }
 

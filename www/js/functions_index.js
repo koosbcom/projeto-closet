@@ -210,6 +210,7 @@ $(document).ready(function () {
     window.location = '/login.html';
   }
 
+  categoriaPecasLook('calças')
   $('.date').mask('00/00/0000');
 
   $('#mesHoje').html(meses[mesSelecionado] + ' ' + anoSelecionado);
