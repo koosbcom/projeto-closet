@@ -2266,6 +2266,14 @@
     background: #2e2e2e;
     padding: 20px !important;
   }
+  .block1 {
+    display: block !important;
+    left: 0;
+    position: relative !important;
+    bottom: 8.5% !important;
+    background: #2e2e2e;
+    padding: 20px !important;
+  }
   .no-mobile {
     display: none !important;
   }
