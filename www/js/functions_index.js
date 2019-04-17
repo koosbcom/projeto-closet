@@ -22,6 +22,16 @@ let mesSelecionado = mesHoje;
 let anoHoje = hoje.getFullYear();
 let anoSelecionado = anoHoje;
 
+let tipoDispositivo;
+
+$(document).ready(function() {
+  if (screen.width < 640 || screen.height < 480) {
+    tipoDispositivo = 'mobile'
+  } else {
+    tipoDispositivo = 'web'
+  }
+});
+
 const gerarToast = function (text) {
   $.toast({
     heading: 'Erro',
@@ -150,7 +160,7 @@ $('#add-viagem-form').submit(function (evt) {
         $('#viagemID').val('');
 
         $('#mod-viagem-form').hide()
-
+        gerarCalendario(mesSelecionado || data.getMonth(), anoSelecionado || data.getFullYear());
         return $.toast({
           heading: 'Sucesso',
           text: 'Sua viagem foi modificada com sucesso.',
@@ -158,7 +168,7 @@ $('#add-viagem-form').submit(function (evt) {
           icon: 'success',
         });
 
-        gerarCalendario(mesSelecionado || data.getMonth(), anoSelecionado || data.getFullYear());
+       
       })
       .catch(err => {
         $('.body-100').loading('stop');
@@ -602,21 +612,37 @@ function gerarCalendario(mes, ano) {
     .then(result => {
       const viagens = result.resultado;
 
-      let dia = new Date(ano, mes, 1);
-      let diaSemana = dia.getDay();
+      let dia = new Date(ano, mes, 1); 
 
-      let diasDoMes = 1;
+      let diaSemana = dia.getDay(); 
 
-      for (let index = 1; index < 6; index++) {
-        diasDoMes = preencherSemana(
-          viagens,
-          mes,
-          ano,
-          diasDoMes,
-          diaSemana,
-          index
-        );
+      let diasDoMes = 1; 
+
+      if(tipoDispositivo=='web'){
+        for (let index = 1; index < 6; index++) {
+          diasDoMes = preencherSemana(
+            viagens,
+            mes,
+            ano,
+            diasDoMes,
+            diaSemana,
+            index
+          );
+        }
+      }else{
+        for (let index = 1; index < 6; index++) {
+          diasDoMes = preencherSemanaMobile(
+            viagens,
+            mes,
+            ano,
+            diasDoMes,
+            diaSemana,
+            index
+          );
+        }
       }
+
+
     })
     .catch(error => {
       $.toast({
@@ -635,34 +661,72 @@ function preencherSemana(viagens, mes, ano, diasDoMes, diaSemana, semana) {
     const nomeEvento = preencherNomeDoEvento(viagens, mes, ano, diasDoMes);
 
     $('.block-dia-' + semana + ':eq(0)')
-      .clone()
-      .appendTo('.block-semana-' + semana + '');
+    .clone()
+    .appendTo('.block-semana-' + semana + '');
+
     $('.block-dia-' + semana + ':eq(' + parseInt(i + 1) + ')').show();
+  
     $('.nome-evento-' + semana + ':eq(' + parseInt(i + 1) + ')').html('');
+
 
     if (diasDoMes > meses[mes]) {
       $('.data-evento-' + semana + ':eq(' + parseInt(i + 1) + ')').html('');
     } else if (i < diaSemana && semana === 1) {
       $('.data-evento-' + semana + ':eq(' + parseInt(i + 1) + ')').html('');
     } else {
-      $('.nome-evento-' + semana + ':eq(' + parseInt(i + 1) + ')').html(
-        nomeEvento
-      );
-      $('.data-evento-' + semana + ':eq(' + parseInt(i + 1) + ')').html(
-        diasDoMes
-      );
+      $('.nome-evento-' + semana + ':eq(' + parseInt(i + 1) + ')').html( nomeEvento );
+      $('.data-evento-' + semana + ':eq(' + parseInt(i + 1) + ')').html( diasDoMes );
+      diasDoMes++;
+    }
+  }
+  console.log("Dias do mes===>",diasDoMes)
+  return diasDoMes;
+}
+
+function preencherSemanaMobile(viagens, mes, ano, diasDoMes, diaSemana, semana) {
+  const meses = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  let eventoExistente = 0
+
+  for (let i = 0; i < 7; i++) {
+    const nomeEvento = preencherNomeDoEvento(viagens, mes, ano, diasDoMes);
+
+    if (diasDoMes > meses[mes]) {
+ 
+    } else if (i < diaSemana && semana === 1) {
+      
+    } else {
+
+      if(nomeEvento !== ''){
+    
+        $('.block-dia-' + semana + ':eq(0)')
+        .clone()
+        .appendTo('.block-semana-' + semana + '');
+  
+        $('.block-dia-' + semana).last().show();
+      
+        $('.nome-evento-' + semana).last().html('');
+
+        $('.nome-evento-' + semana).last().html( nomeEvento );
+        $('.data-evento-' + semana).last().html( diasDoMes );
+
+      }
       diasDoMes++;
     }
   }
   return diasDoMes;
 }
 
+
+
 function preencherNomeDoEvento(viagens, mes, ano, diaAtual) {
+
   let nomeEvento = '';
 
   mes += 1; // Corrigir mês
 
   for (let viagem of viagens) {
+
     const dataInicioViagem = (viagem.dataInicio.split('/').reverse().join('-'));
     const dataVoltaViagem = (viagem.dataVolta.split('/').reverse().join('-'));
     const dataCompleta = (`${ano}-${mes}-${diaAtual}`);
@@ -677,7 +741,7 @@ function preencherNomeDoEvento(viagens, mes, ano, diaAtual) {
 
   if (!nomeEvento) nomeEvento = '';
   else nomeEvento = nomeEvento.substring(0, nomeEvento.length - 2);
-
+  
   return nomeEvento;
 }
 
@@ -697,6 +761,10 @@ function mudarMes(acrescentar) {
       mesSelecionado++;
     }
   }
+  for(let i = 0 ; i < 6 ; i++){
+    $(".block-semana-" + i ).empty()
+  }
+  
 
   $('#mesHoje').html(meses[mesSelecionado] + ' ' + anoSelecionado);
 
