@@ -28,7 +28,7 @@
         <div class="block-flex1">
           
           <div class="block-categorias">
-              <div class="no-display"><br><br><br><br></div>
+        
             <div>
               <form id="form-busca-pecas">
                 <input type="text" class="tfield-busca-closet w-input" maxlength="256" name="busca-2" data-name="Busca 2" placeholder="Buscar" id="buscaPecas" required="">
@@ -57,10 +57,10 @@
             <h3 class="h3-categoria">Acessórios</h3>
             <div class="tblock-lista" onclick="pecasCategoria('bolsas')">Bolsas</div>
             <div class="tblock-lista" onclick="pecasCategoria('acessorios')">Acessórios</div>
-            <div class="tblock-lista" onclick="pecasCategoria('joias')">Jóias</div> <div class="no-display"><br><br><br><br></div>
+            <div class="tblock-lista" onclick="pecasCategoria('joias')">Jóias</div> 
           </div>  
           <div class="block-conteudo">
-              <div class="no-display"><br><br><br><br></div>
+    
             <div class="block-busca busca-none">
               <div class="fblock-busca w-form">
                 <form id="wf-form-BUSCA-FORM" name="wf-form-BUSCA-FORM" data-name="BUSCA FORM" class="form">
@@ -126,7 +126,7 @@
             
             <form id="add-peca" enctype="multipart/form-data">
               <div class="block-row">
-                <div class="no-display"><br><br><br></div> 
+
                 <div class="block-column1">
                   
                   <label for="Marca" class="flabel-cadastro">Insira a Marca da Peça</label>
@@ -163,12 +163,19 @@
                   <label for="observacoes" class="flabel-cadastro">Observações</label>
                   <textarea id="observacoes" name="observacoes" placeholder="Observações" maxlength="5000" data-name="Observacoes" class="tfield-cadastro w-input" required=""></textarea>
                 </div>
-                
+    
                 <div class="block-column1 column-vert">
                   <div class="block-fotos">
                     <label class="flabel-tipo tipo-espaco">Fotos</label>
+                    <div class="controls">
+                        <div class="size-adjust"><img src="images/maximize.png"></div>
+                        <div class="rotate"><img src="images/rotate.png"></div>
+                        <div class="remove"><img src="images/clear-button.png"></div>
+                    </div>
                     <div class="block-fotod">
+
                       <a href="javascript: adicionarFoto();" class="lblock-adicionar w-inline-block"></a>
+
                       <a href="#" class="lblock-adicionar fotos-peca w-inline-block foto-preview" style="display: none">
                         <!-- <div class="block-menos" onclick="retirarFoto(0)">-</div> -->
                       </a>
@@ -183,7 +190,7 @@
               </div>
               
               <input type="submit" value="Concluir" data-wait="Por Favor Aguarde" class="button-add w-button block1 btn-add">
-              <div class="no-display"><br><br><br><br><br><br><br></div>
+         
             </form>
 
         
@@ -197,7 +204,7 @@
           
           <div class="block-categorias">
             <div>
-                <div class="no-display"><br><br><br><br></div>
+            
               <form id="form-busca-looks">
                 <input type="text" class="tfield-busca-closet w-input" maxlength="256" name="busca-2" data-name="Busca 2" placeholder="Buscar" id="buscarLooks" required="">
                 <input type="button" onclick="buscarLook()" value="Buscar" data-wait="Please wait..." class="submit-busca w-button">
@@ -225,9 +232,9 @@
             <h3 class="h3-categoria">Acessórios</h3>
             <div class="tblock-lista" onclick="looksCategoria('bolsas')">Bolsas</div>
             <div class="tblock-lista" onclick="looksCategoria('acessorios')">Acessórios</div>
-            <div class="tblock-lista" onclick="looksCategoria('joias')">Jóias</div>  <div class="no-display"><br><br><br><br></div>
+            <div class="tblock-lista" onclick="looksCategoria('joias')">Jóias</div> 
           </div>
-          <div class="no-display"><br><br><br><br></div>
+     
           <div class="block-conteudo">
             <div class="block-busca busca-none">
               <div class="fblock-busca w-form">
@@ -337,10 +344,13 @@
                       <option value="acessorios">Acessórios</option>
                       <option value="joias">Jóias</option>
                   </select>
+                  <div>
+                      <button type="button" id="btn-passo1" onclick="exibirProximoPasso('dados-do-look');exibirProximoPasso2('look2');exibirProximoPasso3('look3');" class="no-display btn-next">
+                          <img src="images/seta-direita.png"> 
+                      </button>
+                  </div>
                 </div>
-                <button type="button" onclick="exibirProximoPasso('dados-do-look');exibirProximoPasso2('look2');exibirProximoPasso3('look3');" class="no-display btn-next">
-                    Próximo passo </i> 
-                </button>
+
 
 
                 <div class="block-column1 column-vert column3" id="look3"><div class="no-display"><br></div>
@@ -379,7 +389,7 @@
 
                     <div class="block-conteudo-flex" id="pecas-escolher-looks"></div>
                 
-                    <div class="no-display"><br><br><br><br></div>
+                
                   </div>
    
                 </div>
@@ -395,9 +405,9 @@
                   </div>
                 <button type="button" 
                         onclick="esconderPasso1('look2');esconderPasso2('look3');mostrarPrimeiroPasso('dados-do-look');" 
-                        class="no-display btn-back"> <div class="font-button"><i class="fas fa-long-arrow-alt-left"></i>
-                        <div class="txt-voltar">Voltar</div>
-                        </div>
+                        class="no-display btn-back"> 
+                       <img src="images/seta-direita.png">
+                 
                 </button>
                 </div>
               </div>
@@ -434,19 +444,19 @@
    
            
           </div>
-          <a href="#" onclick="adicionarViagem()" class="block-adicionar-peca w-inline-block">
+          <a href="#" onclick="adicionarViagem()" class="block-adicionar-peca w-inline-block  ">
             <div class="tblock-mais" id="add-viagem-button" data-ix="adicionar-viagem">+</div>
           </a>
 
         </div>
-        <a href="#" onclick="adicionarViagem()" class="block-adicionar-peca w-inline-block">
+        <!-- <a href="#" onclick="adicionarViagem()" class="block-adicionar-peca w-inline-block ">
             <div class="fab" id="add-viagem-button" data-ix="adicionar-viagem">+</div>
-        </a>
+        </a> -->
 
       </div>
      
       <div data-w-tab="Calendario" class="tpane-1 tpane0 w-tab-pane">
-        <div class="no-display"><br><br><br><br></div>
+      
         <div class="block-conteudo">
           <div class="block-calendar">
             <div class="block-linhas">
@@ -524,7 +534,7 @@
               <div class="block-semana-5">
               </div>
 
-              <div class="no-display"><br><br><br><br></div>
+    
             </div>
           </div>
         </div>
@@ -534,67 +544,78 @@
       
     </div>
 
-    <div class="tab-menu w-tab-menu">
+    <div class="tab-menu w-tab-menu no-mobile">
 
-        <a data-w-tab="Pecas" onclick="atualizarPecas();" class="tlink-dash w-inline-block w-tab-link">
+        <a data-w-tab="Pecas" onclick="atualizarPecas();" class="tlink-dash w-inline-block w-tab-link navbar">
           <div class="tblock-tab">Closet</div>
         </a>
   
-        <a data-w-tab="add Pecas" class="tlink-dash w-inline-block w-tab-link no-mobile">
+        <a data-w-tab="add Pecas" class="tlink-dash w-inline-block w-tab-link navbar no-mobile">
           <div class="tblock-tab">Adicionar Peças</div>
         </a>
   
-        <a data-w-tab="Looks" class="tlink-dash w-inline-block w-tab-link">
+        <a data-w-tab="Looks" class="tlink-dash w-inline-block w-tab-link navbar">
           <div class="tblock-tab">Looks</div>
         </a>
   
-        <a data-w-tab="add Looks" class="tlink-dash w-inline-block w-tab-link w--current no-mobile">
+        <a data-w-tab="add Looks" class="tlink-dash w-inline-block w-tab-link w--current navbar">
           <div class="tblock-tab">Adicionar Looks</div>
         </a>
   
-        <a data-w-tab="Viagem" class="tlink-dash w-inline-block w-tab-link no-mobile">
+        <a data-w-tab="Viagem" class="tlink-dash w-inline-block w-tab-link navbar">
           <div class="tblock-tab">Viagens</div>
         </a>
   
-        <a data-w-tab="Calendario" class="tlink-dash w-inline-block w-tab-link no-mobile">
+        <a data-w-tab="Calendario" class="tlink-dash w-inline-block w-tab-link navbar" >
           <div class="tblock-tab" id="abrir-calendario" onclick="mudarMes()">Calendário</div>
         </a>
   
-        <a data-w-tab="Out" onclick="logout()" class="tlink-dash w-inline-block w-tab-link no-mobile">
+        <a data-w-tab="Out" onclick="logout()" class="tlink-dash w-inline-block w-tab-link navbar" >
           <div class="tblock-tab">SAIR</div>
-        </a>
-
-        <a data-w-tab="Out" onclick="logout()" class="no-display tlink-dash w-inline-block w-tab-link tab-logout">
-            <div class="tblock-tab"><i class="fas fa-sign-out-alt"></i></div>
         </a>
 
       </div>
 
-      <div class="tab-menu w-tab-menu footer no-display">
-        
-          <a data-w-tab="add Pecas" class="tlink-dash w-inline-block w-tab-link ">
-            <!-- <div class="tblock-tab"><i class="fas fa-plus"></i> Peças</div> -->
-            <img src="images/clothes.png" height="20px" width="20px">
-          </a>
-    
-          <a data-w-tab="add Looks" class="tlink-dash w-inline-block w-tab-link w--current">
-            <!-- <div class="tblock-tab"><i class="fas fa-plus"></i> Looks</div> -->
-            <img src="images/sapato.png" height="20px" width="20px">
-          </a>
-    
-          <a data-w-tab="Viagem" class="tlink-dash w-inline-block w-tab-link">
-            <!-- <div class="tblock-tab"><i class="fas fa-plane"></i></div> -->
-            <img src="images/airplane.png" height="20px" width="20px">
-          </a>
-    
-          <a data-w-tab="Calendario" class="tlink-dash w-inline-block w-tab-link ">
-            <div class="tblock-tab" id="abrir-calendario" onclick="mudarMes()">
-                <!-- <i class="fas fa-calendar-alt"></i> -->
-                <img src="images/calendar.png" height="20px" width="20px">
-            </div>
-          </a>
+      <!--menu exibido em versão mobile-->
+      <div class="tab-menu w-tab-menu no-display">
 
-        </div>
+        <a data-w-tab="Pecas" onclick="atualizarPecas();" class="tlink-dash w-inline-block w-tab-link navbar">
+          <div class="tblock-tab">Closet</div>
+        </a>
+  
+
+        <a data-w-tab="Looks" class="tlink-dash w-inline-block w-tab-link navbar">
+          <div class="tblock-tab">Looks</div>
+        </a>
+  
+        <a data-w-tab="Viagem" class="tlink-dash w-inline-block w-tab-link navbar">
+          <div class="tblock-tab">Viagens</div>
+        </a>
+  
+        <a data-w-tab="Calendario" class="tlink-dash w-inline-block w-tab-link navbar" >
+          <div class="tblock-tab" id="abrir-calendario" onclick="mudarMes()">Calendário</div>
+        </a>
+  
+      </div>
+
+      <div class="tab-menu-sub w-tab-menu no-display">
+
+        <a data-w-tab="add Pecas" class="tlink-dash w-inline-block w-tab-link navbar">
+          <div class="tblock-tab-black txt-inline">Adicionar Peças</div>
+        </a>
+  
+        <a data-w-tab="add Looks" class="tlink-dash w-inline-block w-tab-link w--current navbar">
+          <div class="tblock-tab-black">Adicionar Looks</div>
+        </a>
+
+        <a data-w-tab="Out" onclick="logout()" class="tlink-dash w-inline-block w-tab-link navbar" >
+          <div class="tblock-tab-black">SAIR</div>
+        </a>
+
+      </div>
+
+
+
 
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -615,6 +636,7 @@
         function exibirProximoPasso2(el) {
             var display = document.getElementById(el).style.display;
             document.getElementById(el).style.display = 'block';
+           
         }
         function exibirProximoPasso3(el) {
             var display = document.getElementById(el).style.display;

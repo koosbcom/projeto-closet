@@ -2255,8 +2255,73 @@
     height: 0px !important;
     margin-bottom: 20px;
   }
+  .w-tab-menu{
+    padding: 0px !important;
+    margin: 0px !important;
+  }
   .tab-menu {
-    position: fixed !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-ordinal-group: 0;
+    -webkit-order: -1;
+    -ms-flex-order: -1;
+    order: -1;
+    background-color: #000;
+  }
+  .tab-menu-sub {
+    padding: 0px !important;
+    margin: 0px !important;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-ordinal-group: 0;
+    -webkit-order: -1;
+    -ms-flex-order: -1;
+    order: -1;
+    color: black !important;
+    background-color: rgb(245, 245, 245);
+    
+  }
+  .txt-inline{
+    display: inline!important;
+
+  }
+  .tblock-tab-black{
+    color:black !important;
+    font-family: "Avenirltstd book", sans-serif;
+    text-align: center;
+    width: 100% !important;
+    display: inline-block;
+  }
+  .tlink-dash{
+    font-size: 10px!important;
+    padding: 5px !important;
+    margin: 10px;
+    width: 100%!important;
   }
   .block {
     display: block !important;
@@ -2350,14 +2415,17 @@
   }
   .btn-next {
     text-align: center !important;
-    width: 35%;
     height: 45px;
-    background: black !important;
+    background: white !important;
     color: white;
     font-family: "Avenirltstd book", sans-serif;
-    position: fixed !important;
+    position: relative !important;
     right: 0;
-    padding-left: 20px;
+    float: right;
+    padding-left: 5px;
+  }
+  .fotos-peca{
+     border-top: 20px solid black!important;
   }
   .section-edit {
      padding-right: 10px !important; 
@@ -2372,16 +2440,16 @@
     font-size: 15px;
   }
   .btn-back {
-    font-family: "Avenirltstd book", sans-serif;
-    width: 25%;
     text-align: center !important;
     height: 45px;
-    left: 0;
+    background: white !important;
+    color: white;
+    font-family: "Avenirltstd book", sans-serif;
     position: fixed !important;
-    bottom: 18.5% !important;
-    background: #0000003d;
-    color: white !important;
-    padding-left: 20px;
+    left: 0;
+    float: left !important;
+    padding-left: 5px;
+    transform: rotate(180deg);
   }
   .tabs-closey{
     background: white !important;
@@ -2396,6 +2464,25 @@
   .font-button{
     text-align: right !important;
   }
+  .navbar{
+    width: 100%;
+    display: block!important;
+  }
+  .w-inline-block{
+    display: relative!important;
+  }
+  .controls{
+       
+    border-style: dotted;
+    width: 100%;
+    color:black !important;
+    display: flex !important;
+    padding: 5px;
+  }
+  .size-adjust, .remove, .rotate{
+    padding: 10px;
+  }
+  
 }
 
 .tcontant {
