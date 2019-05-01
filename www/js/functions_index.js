@@ -292,7 +292,7 @@ $('#form-busca-pecas').submit(function (e) {
 $('#girar-img').click(function () {
   const image = document.querySelector('.foto-preview')
   girarImg(90, image)
-}
+})
 
 $('#wf-form-cadastro-peca').submit(function (ev) {
   ev.preventDefault()
@@ -300,271 +300,271 @@ $('#wf-form-cadastro-peca').submit(function (ev) {
 })
 
 function adicionarFoto() {
-  $('.foto-upload').last().click();
-}
+    $('.foto-upload').last().click();
+  }
 
 // Faz o preview de uma imagem que foi selecionada
 function readURL(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
 
-    reader.onload = function (e) {
+      reader.onload = function (e) {
 
-      $('.foto-preview:eq(' + fotos.length + ')')
-        .clone()
-        .appendTo('.block-fotod');
-      $('.foto-preview:eq(' + fotos.length + ')').show();
-      $('.foto-preview:eq(' + fotos.length + ')').attr("src", e.target.result);
-      $('.foto-upload:eq(' + fotos.length + ')').clone().appendTo('#upload');
+        $('.foto-preview:eq(' + fotos.length + ')')
+          .clone()
+          .appendTo('.block-fotod');
+        $('.foto-preview:eq(' + fotos.length + ')').show();
+        $('.foto-preview:eq(' + fotos.length + ')').attr("src", e.target.result);
+        $('.foto-upload:eq(' + fotos.length + ')').clone().appendTo('#upload');
 
-      fotos.push(input);
+        fotos.push(input);
 
-      $('.block-menos:eq(' + fotos.length + ')').attr(
-        'onclick',
-        'retirarFoto(' + fotos.length + ')'
-      );
+        $('.block-menos:eq(' + fotos.length + ')').attr(
+          'onclick',
+          'retirarFoto(' + fotos.length + ')'
+        );
 
-    };
-    reader.readAsDataURL(input.files[0]);
-    if (fotos.length > 0) retirarFoto(fotos.length - 1)
+      };
+      reader.readAsDataURL(input.files[0]);
+      if (fotos.length > 0) retirarFoto(fotos.length - 1)
+    }
+
   }
-
-}
 
 function girarImg(graus, img) {
-  const canvas = document.createElement("canvas");
+    const canvas = document.createElement("canvas");
 
-  if (graus === 90) {
-    canvas.width = img.height
-    canvas.height = img.width
-  } else {
-    canvas.width = img.width
-    canvas.height = img.height
+    if (graus === 90) {
+      canvas.width = img.height
+      canvas.height = img.width
+    } else {
+      canvas.width = img.width
+      canvas.height = img.height
+    }
+
+    const ctx = canvas.getContext("2d");
+
+    ctx.translate(canvas.width / 2, canvas.height / 2);
+    ctx.clearRect(-canvas.width, -canvas.height, canvas.width * 2, canvas.height * 2);
+    ctx.rotate(graus * Math.PI / 180);
+    ctx.drawImage(img, -img.width / 2, -img.width / 2);
+
+    img.src = canvas.toDataURL("image/png");
   }
 
-  const ctx = canvas.getContext("2d");
-
-  ctx.translate(canvas.width / 2, canvas.height / 2);
-  ctx.clearRect(-canvas.width, -canvas.height, canvas.width * 2, canvas.height * 2);
-  ctx.rotate(graus * Math.PI / 180);
-  ctx.drawImage(img, -img.width / 2, -img.width / 2);
-
-  img.src = canvas.toDataURL("image/png");
-}
-
 function retirarFoto(posicao) {
-  fotos = []
-  $('.foto-preview').first().remove();
-  $('.foto-upload').first().remove();
-  $('#input-foto-closet').val("");
-}
+    fotos = []
+    $('.foto-preview').first().remove();
+    $('.foto-upload').first().remove();
+    $('#input-foto-closet').val("");
+  }
 
 function atualizarPecas() {
-  obterDados('pecas/todos/12')
-    .then(result => {
-      carregarPecas(result);
-    })
-    .catch(err => {
-      $.toast({
-        heading: 'Erro',
-        text: '6 - Não foi possível se conectar ao servidor. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
-        showHideTransition: 'slide',
-        icon: 'error',
+    obterDados('pecas/todos/12')
+      .then(result => {
+        carregarPecas(result);
+      })
+      .catch(err => {
+        $.toast({
+          heading: 'Erro',
+          text: '6 - Não foi possível se conectar ao servidor. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
+          showHideTransition: 'slide',
+          icon: 'error',
+        });
       });
-    });
-}
+  }
 
 // Carrega as peças a partir de um dataset de resultado
 function carregarPecas(result) {
-  let pecas = result.resultado;
-  let contador = 0;
-  let colunas = [1, 1, 1];
+    let pecas = result.resultado;
+    let contador = 0;
+    let colunas = [1, 1, 1];
 
-  $('#coluna-pecas-0').empty();
-  $('.pecas-start-0:eq(0)').clone().appendTo('#coluna-pecas-0');
+    $('#coluna-pecas-0').empty();
+    $('.pecas-start-0:eq(0)').clone().appendTo('#coluna-pecas-0');
 
-  $('#coluna-pecas-1').empty();
-  $('.pecas-start-1:eq(0)').clone().appendTo('#coluna-pecas-1');
+    $('#coluna-pecas-1').empty();
+    $('.pecas-start-1:eq(0)').clone().appendTo('#coluna-pecas-1');
 
-  $('#coluna-pecas-2').empty();
-  $('.pecas-start-2:eq(0)').clone().appendTo('#coluna-pecas-2');
+    $('#coluna-pecas-2').empty();
+    $('.pecas-start-2:eq(0)').clone().appendTo('#coluna-pecas-2');
 
-  for (let i = 0; i < pecas.length; i++) {
-    let fotosPecas = JSON.parse(pecas[i].fotos);
+    for (let i = 0; i < pecas.length; i++) {
+      let fotosPecas = JSON.parse(pecas[i].fotos);
 
-    $('.pecas-start-' + contador + ':eq(0)')
-      .clone()
-      .appendTo('#coluna-pecas-' + contador);
-    $('.pecas-start-' + contador + ':eq(' + colunas[contador] + ')').show();
-    $('.peca-peca-' + contador + ':eq(' + colunas[contador] + ')').css(
-      'background-image',
-      'url(uploads/' + fotosPecas[0] + ')'
-    );
-    $('.escrito-peca-' + contador + ':eq(' + colunas[contador] + ')').html(
-      pecas[i].marca
-    );
-    //$('.pecas-start:eq(' + parseInt(contador + 1) + ')').hide();
+      $('.pecas-start-' + contador + ':eq(0)')
+        .clone()
+        .appendTo('#coluna-pecas-' + contador);
+      $('.pecas-start-' + contador + ':eq(' + colunas[contador] + ')').show();
+      $('.peca-peca-' + contador + ':eq(' + colunas[contador] + ')').css(
+        'background-image',
+        'url(uploads/' + fotosPecas[0] + ')'
+      );
+      $('.escrito-peca-' + contador + ':eq(' + colunas[contador] + ')').html(
+        pecas[i].marca
+      );
+      //$('.pecas-start:eq(' + parseInt(contador + 1) + ')').hide();
 
-    colunas[contador]++;
+      colunas[contador]++;
 
-    contador++;
+      contador++;
 
-    if (contador > 2) {
-      contador = 0;
+      if (contador > 2) {
+        contador = 0;
+      }
     }
   }
-}
 
 function pecasCategoria(categoria) {
-  $('.body-100').loading({
-    stoppable: true,
-  });
-
-  obterDados('pecas/categoria/' + categoria)
-    .then(result => {
-      $('.body-100').loading('stop');
-
-      carregarPecas(result);
-    })
-    .catch(err => {
-      $('.body-100').loading('stop');
-
-      $.toast({
-        heading: 'Erro',
-        text: '7 - Não foi possível se conectar ao servidor. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
-        showHideTransition: 'slide',
-        icon: 'error',
-      });
+    $('.body-100').loading({
+      stoppable: true,
     });
-}
+
+    obterDados('pecas/categoria/' + categoria)
+      .then(result => {
+        $('.body-100').loading('stop');
+
+        carregarPecas(result);
+      })
+      .catch(err => {
+        $('.body-100').loading('stop');
+
+        $.toast({
+          heading: 'Erro',
+          text: '7 - Não foi possível se conectar ao servidor. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
+          showHideTransition: 'slide',
+          icon: 'error',
+        });
+      });
+  }
 
 function buscarPecas() {
-  let busca = $('#buscaPecas').val();
-  if (!busca) return null
-  $('.body-100').loading({
-    stoppable: true,
-  });
-
-  obterDados('pecas/marca/' + busca)
-    .then(result => {
-      $('.body-100').loading('stop');
-
-      carregarPecas(result);
-    })
-    .catch(err => {
-      $('.body-100').loading('stop');
-
-      $.toast({
-        heading: 'Erro',
-        text: '8 - Não foi possível se conectar ao servidor. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
-        showHideTransition: 'slide',
-        icon: 'error',
-      });
+    let busca = $('#buscaPecas').val();
+    if (!busca) return null
+    $('.body-100').loading({
+      stoppable: true,
     });
-}
+
+    obterDados('pecas/marca/' + busca)
+      .then(result => {
+        $('.body-100').loading('stop');
+
+        carregarPecas(result);
+      })
+      .catch(err => {
+        $('.body-100').loading('stop');
+
+        $.toast({
+          heading: 'Erro',
+          text: '8 - Não foi possível se conectar ao servidor. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
+          showHideTransition: 'slide',
+          icon: 'error',
+        });
+      });
+  }
 
 
 function logout() {
-  localStorage.removeItem('user');
-  
-  window.location = '/login.html';
-}
+    localStorage.removeItem('user');
+
+    window.location = '/login.html';
+  }
 
 
 // Eventos & Calendário
 
 $('#add-viagem-form').submit(function (evt) {
-  evt.preventDefault();
+    evt.preventDefault();
 
-  $('.body-100').loading({
-    stoppable: true,
-  });
+    $('.body-100').loading({
+      stoppable: true,
+    });
 
-  let dados = {
-    cidade: $('#cidade').val(),
-    dataInicio: $('#data-inicio').val(),
-    dataVolta: $('#data-volta').val(),
-  };
+    let dados = {
+      cidade: $('#cidade').val(),
+      dataInicio: $('#data-inicio').val(),
+      dataVolta: $('#data-volta').val(),
+    };
 
-  let keys = Object.keys(dados);
+    let keys = Object.keys(dados);
 
-  for (let i = 0; i < keys.length; i++) {
-    if (dados[keys[i]] === null || dados[keys[i]] === '') {
-      return $.toast({
-        heading: 'Erro',
-        text: 'O campo ' + keys[i] + ' não pode ser nulo.',
-        showHideTransition: 'slide',
-        icon: 'error',
-      });
+    for (let i = 0; i < keys.length; i++) {
+      if (dados[keys[i]] === null || dados[keys[i]] === '') {
+        return $.toast({
+          heading: 'Erro',
+          text: 'O campo ' + keys[i] + ' não pode ser nulo.',
+          showHideTransition: 'slide',
+          icon: 'error',
+        });
+      }
     }
-  }
 
-  if ($('#viagemID').val() !== '') {
-    alterarDados('viagens/' + $('#viagemID').val(), dados)
-      .then(result => {
-        atualizarViagens();
+    if ($('#viagemID').val() !== '') {
+      alterarDados('viagens/' + $('#viagemID').val(), dados)
+        .then(result => {
+          atualizarViagens();
 
-        $('.body-100').loading('stop');
+          $('.body-100').loading('stop');
 
-        $('#cidade').val('');
-        $('#data-inicio').val('');
-        $('#data-volta').val('');
-        $('#viagemID').val('');
+          $('#cidade').val('');
+          $('#data-inicio').val('');
+          $('#data-volta').val('');
+          $('#viagemID').val('');
 
-        $('#mod-viagem-form').hide()
-        gerarCalendario(mesSelecionado || data.getMonth(), anoSelecionado || data.getFullYear());
-        return $.toast({
-          heading: 'Sucesso',
-          text: 'Sua viagem foi modificada com sucesso.',
-          showHideTransition: 'slide',
-          icon: 'success',
+          $('#mod-viagem-form').hide()
+          gerarCalendario(mesSelecionado || data.getMonth(), anoSelecionado || data.getFullYear());
+          return $.toast({
+            heading: 'Sucesso',
+            text: 'Sua viagem foi modificada com sucesso.',
+            showHideTransition: 'slide',
+            icon: 'success',
+          });
+
+
+        })
+        .catch(err => {
+          $('.body-100').loading('stop');
+
+          $.toast({
+            heading: 'Erro',
+            text: '1 - Não foi possível se conectar ao servidor. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
+            showHideTransition: 'slide',
+            icon: 'error',
+          });
         });
+    } else {
+      enviarDados('viagens', dados)
+        .then(result => {
+          atualizarViagens();
 
+          $('#cidade').val('');
+          $('#data-inicio').val('');
+          $('#data-volta').val('');
+          $('#viagemID').val('');
 
-      })
-      .catch(err => {
-        $('.body-100').loading('stop');
+          $('#mod-viagem-form').hide()
 
-        $.toast({
-          heading: 'Erro',
-          text: '1 - Não foi possível se conectar ao servidor. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
-          showHideTransition: 'slide',
-          icon: 'error',
+          $('.body-100').loading('stop');
+
+          return $.toast({
+            heading: 'Sucesso',
+            text: 'Sua viagem foi adicionada com sucesso.',
+            showHideTransition: 'slide',
+            icon: 'success',
+          });
+        })
+        .catch(err => {
+          $('.body-100').loading('stop');
+
+          $.toast({
+            heading: 'Erro',
+            text: '4 - Não foi possível se conectar ao servidor. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
+            showHideTransition: 'slide',
+            icon: 'error',
+          });
         });
-      });
-  } else {
-    enviarDados('viagens', dados)
-      .then(result => {
-        atualizarViagens();
-
-        $('#cidade').val('');
-        $('#data-inicio').val('');
-        $('#data-volta').val('');
-        $('#viagemID').val('');
-
-        $('#mod-viagem-form').hide()
-
-        $('.body-100').loading('stop');
-
-        return $.toast({
-          heading: 'Sucesso',
-          text: 'Sua viagem foi adicionada com sucesso.',
-          showHideTransition: 'slide',
-          icon: 'success',
-        });
-      })
-      .catch(err => {
-        $('.body-100').loading('stop');
-
-        $.toast({
-          heading: 'Erro',
-          text: '4 - Não foi possível se conectar ao servidor. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
-          showHideTransition: 'slide',
-          icon: 'error',
-        });
-      });
-  }
-});
+    }
+  });
 
 $('#btn-deletar-viagem').click(function (e) {
   criarLoading()
@@ -697,6 +697,7 @@ function gerarCalendario(mes, ano) {
 
     })
     .catch(error => {
+      console.error(error)
       $.toast({
         heading: 'Erro',
         text: '11 - Não foi possível se conectar ao servidor. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
@@ -767,6 +768,42 @@ function preencherSemanaMobile(viagens, mes, ano, diasDoMes, diaSemana, semana) 
   }
   return diasDoMes;
 }
+
+function preencherSemanaMobile(viagens, mes, ano, diasDoMes, diaSemana, semana) {
+  const meses = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  let eventoExistente = 0
+
+  for (let i = 0; i < 7; i++) {
+    const nomeEvento = preencherNomeDoEvento(viagens, mes, ano, diasDoMes);
+
+    if (diasDoMes > meses[mes]) {
+
+    } else if (i < diaSemana && semana === 1) {
+
+    } else {
+
+      if (nomeEvento !== '') {
+
+        $('.block-dia-' + semana + ':eq(0)')
+          .clone()
+          .appendTo('.block-semana-' + semana + '');
+
+        $('.block-dia-' + semana).last().show();
+
+        $('.nome-evento-' + semana).last().html('');
+
+        $('.nome-evento-' + semana).last().html(nomeEvento);
+        $('.data-evento-' + semana).last().html(diasDoMes);
+
+      }
+      diasDoMes++;
+    }
+  }
+  return diasDoMes;
+}
+
+
 
 function preencherNomeDoEvento(viagens, mes, ano, diaAtual) {
 
