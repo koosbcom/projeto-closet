@@ -30,7 +30,7 @@ app.use('/uploads/', express.static(path.join(__dirname, 'uploads')));
 
 // Conexao com base de dados
 const db_config = {
-  connectionLimit : 10,
+  connectionLimit : 20,
   host: db_host,
   user: db_user,
   password: db_senha,

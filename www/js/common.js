@@ -11,8 +11,8 @@ function obterDados(endpoint) {
 
                 reject(data);
 
-            } else {
-
+              } else {
+                
                 resolve(data);
 
             }
@@ -122,7 +122,7 @@ function apagarDados(endpoint) {
               $('.body-100').loading('stop');
               
               if(data.erro === true) {
-
+                  
                   reject(data);
   
               } else {
