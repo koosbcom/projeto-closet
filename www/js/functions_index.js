@@ -1,5 +1,5 @@
 // Declaração de Variáveis
-
+let contadorGirarFoto = 0;
 let fotos = [];
 let pecasLook = [];
 let hoje = new Date();
@@ -17,7 +17,7 @@ let meses = [
   'Novembro',
   'Dezembro',
 ];
-
+$("#rotate").val('0deg');
 let mesHoje = hoje.getMonth();
 let mesSelecionado = mesHoje;
 
@@ -241,8 +241,9 @@ $('#add-peca').submit(function (evt) {
       marca: $('#marca').val(),
       categoria: $('#categoria').val(),
       observacoes: $('#observacoes').val(),
+      rotate: $('#rotate').val(),
     };
-
+    console.log(dados)
     $('#add-peca').ajaxSubmit({
       url: '/pecas',
       type: 'POST',
@@ -268,7 +269,7 @@ $('#add-peca').submit(function (evt) {
         $('.foto-preview:eq("0")').remove();
         $('.foto-upload:eq("0")').remove();
         fotos = []
-
+      
         $.toast({
           heading: 'Sucesso',
           text: 'Sua peça foi adicionada com sucesso.',
@@ -290,10 +291,29 @@ $('#form-busca-pecas').submit(function (e) {
 })
 
 $('#girar-img').click(function () {
-  const image = document.querySelector('.foto-preview')
-  girarImg(90, image)
+
+  contadorGirarFoto++
+  if(contadorGirarFoto == 1){
+    document.getElementById("foto-preview").style.WebkitTransform = "rotate(90deg)"; 
+    $("#rotate").val(90);
+  }else if(contadorGirarFoto == 2){
+    document.getElementById("foto-preview").style.WebkitTransform = "rotate(180deg)"; 
+    $("#rotate").val(180);
+  }else if(contadorGirarFoto == 3){
+    document.getElementById("foto-preview").style.WebkitTransform = "rotate(270deg)"; 
+    $("#rotate").val(270);
+  }else if(contadorGirarFoto == 4){
+    document.getElementById("foto-preview").style.WebkitTransform = "rotate(360deg)"; 
+    $("#rotate").val(0);
+    contadorGirarFoto = 0 
+  }
+
 })
 
+
+$('#remover-img').click(function(){
+  retirarFoto()
+})
 $('#wf-form-cadastro-peca').submit(function (ev) {
   ev.preventDefault()
   adicionarLook()
@@ -301,7 +321,7 @@ $('#wf-form-cadastro-peca').submit(function (ev) {
 
 function adicionarFoto() {
     $('.foto-upload').last().click();
-  }
+}
 
 // Faz o preview de uma imagem que foi selecionada
 function readURL(input) {
@@ -331,26 +351,31 @@ function readURL(input) {
 
   }
 
-function girarImg(graus, img) {
-    const canvas = document.createElement("canvas");
+// function girarImg(graus, img) {
+//   graus= 90
+//     const canvas = document.createElement("canvas");
+//     contadorGirarFoto++
+  
+//     auxH =h
+//     auxW = w
+//     console.log(h, "x ",w)
 
-    if (graus === 90) {
-      canvas.width = img.height
-      canvas.height = img.width
-    } else {
-      canvas.width = img.width
-      canvas.height = img.height
-    }
+//     canvas.width = h
+//     canvas.height = w
+      
+//     const ctx = canvas.getContext("2d");
+  
+//     ctx.translate(canvas.width / 2, canvas.height / 2);
+//     ctx.clearRect(-canvas.width, -canvas.height, canvas.width * 2, canvas.height * 2);
+//     ctx.rotate(-graus * Math.PI / 180);
 
-    const ctx = canvas.getContext("2d");
-
-    ctx.translate(canvas.width / 2, canvas.height / 2);
-    ctx.clearRect(-canvas.width, -canvas.height, canvas.width * 2, canvas.height * 2);
-    ctx.rotate(graus * Math.PI / 180);
-    ctx.drawImage(img, -img.width / 2, -img.width / 2);
-
-    img.src = canvas.toDataURL("image/png");
-  }
+//     ctx.drawImage(img, -auxW / 2, -auxH / 2);
+ 
+//     img.src = canvas.toDataURL("image/png");
+    
+//     //img.style.width = "170px"
+//     //img.style.height = "200px"
+//   }
 
 function retirarFoto(posicao) {
     fotos = []
@@ -376,6 +401,7 @@ function atualizarPecas() {
 
 // Carrega as peças a partir de um dataset de resultado
 function carregarPecas(result) {
+    console.log(result)
     let pecas = result.resultado;
     let contador = 0;
     let colunas = [1, 1, 1];
@@ -416,6 +442,7 @@ function carregarPecas(result) {
   }
 
 function pecasCategoria(categoria) {
+
     $('.body-100').loading({
       stoppable: true,
     });
@@ -440,6 +467,7 @@ function pecasCategoria(categoria) {
 
 function buscarPecas() {
     let busca = $('#buscaPecas').val();
+    
     if (!busca) return null
     $('.body-100').loading({
       stoppable: true,
@@ -448,7 +476,7 @@ function buscarPecas() {
     obterDados('pecas/marca/' + busca)
       .then(result => {
         $('.body-100').loading('stop');
-
+     
         carregarPecas(result);
       })
       .catch(err => {
