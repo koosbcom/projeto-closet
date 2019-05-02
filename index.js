@@ -9,6 +9,7 @@ const multer = require('multer');
 const fs = require('fs');
 const pathModule = require('path');
 const app = express();
+const { Image } = require('image-js')
 
 // Dados de conexão
 var db_host = '148.72.80.32';
@@ -30,7 +31,7 @@ app.use('/uploads/', express.static(path.join(__dirname, 'uploads')));
 
 // Conexao com base de dados
 const db_config = {
-  connectionLimit : 20,
+  connectionLimit: 20,
   host: db_host,
   user: db_user,
   password: db_senha,
@@ -44,7 +45,7 @@ app.listen(port, () => {
 });
 
 //Libera requisições CORS
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   // Website you wish to allow to connect
   res.setHeader('Access-Control-Allow-Origin', '*');
 
@@ -69,7 +70,7 @@ app.use(function(req, res, next) {
 });
 
 // Funções globais
-var validaTabela = function(tabela) {
+var validaTabela = function (tabela) {
   let validacao = false;
 
   for (let i = 0; i < tables.length; i++) {
@@ -81,7 +82,7 @@ var validaTabela = function(tabela) {
   return validacao;
 };
 
-var validaCampos = function(campo) {
+var validaCampos = function (campo) {
   let validacao = false;
 
   for (let i = 0; i < campos.length; i++) {
@@ -93,7 +94,7 @@ var validaCampos = function(campo) {
   return validacao;
 };
 
-var validaDados = function(dados) {
+var validaDados = function (dados) {
   let chaves = Object.keys(dados);
   let erro = false;
 
@@ -109,7 +110,7 @@ var validaDados = function(dados) {
   return erro;
 };
 
-var updateDados = function(dados) {
+var updateDados = function (dados) {
   let chaves = Object.keys(dados);
 
   for (let i = 0; i < chaves.length; i++) {
@@ -121,7 +122,7 @@ var updateDados = function(dados) {
   return dados;
 };
 
-var criarQueryInsert = function(dados, table, excluir = []) {
+var criarQueryInsert = function (dados, table, excluir = []) {
   let query = 'INSERT INTO ' + table + ' (';
   let chaves = Object.keys(dados);
 
@@ -156,7 +157,7 @@ var criarQueryInsert = function(dados, table, excluir = []) {
   return query;
 };
 
-var criarQueryUpdate = function(dados, table, where, excluir = []) {
+var criarQueryUpdate = function (dados, table, where, excluir = []) {
   let query = 'UPDATE ' + table + ' SET ';
   let chaves = Object.keys(dados);
 
@@ -435,6 +436,7 @@ app.post('/users/login', (req, res) => {
 
 // Adiciona um peca
 app.post('/pecas', (req, res) => {
+  console.log('PECAS')
   let table = 'pecas';
 
   let dados = req.body.dados;
@@ -445,6 +447,12 @@ app.post('/pecas', (req, res) => {
   let contador = 1;
 
   if (erro === false) {
+    let rotate = 0
+    if (dados.rotate > 0) {
+      rotate = parseInt(req.body.rotate)
+    }
+
+    delete dados.rotate
     for (let i = 0; i < req.files.length - 1; i++) {
       let foto = Date.now() + i + '.jpg';
 
@@ -457,10 +465,14 @@ app.post('/pecas', (req, res) => {
       fotos.push(foto);
 
       stream.on('finish', () => {
-        fs.unlink(req.files[i].path, (erro) => {
+        fs.unlink(req.files[i].path, async (erro) => {
           if (erro) console.error(erro)
-        })
-  
+          const image = await Image.load('./uploads/' + foto);
+          image.rotate(rotate).save('./uploads/' + foto)
+        }
+
+        )
+
         contador++;
 
         // Caso não tenha erros, adiciona na base de dados
@@ -541,7 +553,7 @@ app.patch('/:table/:_id', (req, res) => {
     where = {
       look_id: id,
     };
-    
+
   } else if (table === 'viagens') {
     where = {
       viagem_id: id,
