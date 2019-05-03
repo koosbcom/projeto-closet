@@ -453,6 +453,7 @@ app.post('/pecas', (req, res) => {
     }
 
     delete dados.rotate
+    
     for (let i = 0; i < req.files.length - 1; i++) {
       let foto = Date.now() + i + '.jpg';
 
@@ -463,7 +464,7 @@ app.post('/pecas', (req, res) => {
       let stream = readerStream.pipe(writerStream);
 
       fotos.push(foto);
-
+      
       stream.on('finish', () => {
         fs.unlink(req.files[i].path, async (erro) => {
           if (erro) console.error(erro)

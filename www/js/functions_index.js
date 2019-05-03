@@ -72,8 +72,13 @@ $(document).ready(function () {
   const data = new Date()
   gerarCalendario(data.getMonth(), data.getFullYear());
 
+  document.getElementById('alerta').style.display = 'none';
   if (screen.width < 640 || screen.height < 480) {
     tipoDispositivo = 'mobile'
+    console.log(tipoDispositivo)
+    document.getElementById('titulo-passo-2').style.display = 'none';
+    document.getElementById('btn-passo-2').style.display = 'none';
+    document.getElementById('passo2').style.display = 'none';
   } else {
     tipoDispositivo = 'web'
   }
@@ -135,6 +140,7 @@ function categoriaPecasLook(categoria) {
 }
 
 function adicionarPecaLook(peca) {
+  
   pecasLook.push(peca);
   categoriaPecasLook($('#Tipo-Peca-2').val())
   $('#pecas-escolhidas-look').empty();
@@ -266,7 +272,8 @@ $('#add-peca').submit(function (evt) {
         $('#marca').val('')
         $('#categoria').val('')
         $('#observacoes').val('')
-        $('.foto-preview:eq("0")').remove();
+        $('#rotate').val('')
+        $('#foto-preview:eq("0")').remove();
         $('.foto-upload:eq("0")').remove();
         fotos = []
       
@@ -310,7 +317,6 @@ $('#girar-img').click(function () {
 
 })
 
-
 $('#remover-img').click(function(){
   retirarFoto()
 })
@@ -318,8 +324,36 @@ $('#wf-form-cadastro-peca').submit(function (ev) {
   ev.preventDefault()
   adicionarLook()
 })
+function validarCamposPeca(){
+  let nomeLook=  $('#nomeLook').val()
+  let observacoesLook=  $('#observacoesLook').val()
+  let categoriasLook=  $('#categoriasLook').val()
 
+  if(nomeLook == '' || observacoesLook == '' || categoriasLook== ''){
+   document.getElementById('alerta').style.display = 'block';
+  }else{
+   document.getElementById('alerta').style.display = 'none';
+   esconderPasso1('dados-do-look'); exibirPasso2('passo2');
+  }
+}
+ function esconderPasso1(el) {
+   document.getElementById(el).style.display = 'none';
+ }
+ function exibirPasso2(el) {
+   document.getElementById('titulo-passo-2').style.display = 'block';
+   document.getElementById(el).style.display = 'block';
+   document.getElementById('btn-passo-2').style.display = 'block';
+ }
+ function esconderPasso2(el) {
+   document.getElementById('titulo-passo-2').style.display = 'none';
+   document.getElementById('btn-passo-2').style.display = 'none';
+   document.getElementById(el).style.display = 'none';
+ }
+ function exibirPasso1(el) {
+ document.getElementById(el).style.display = 'block';
+ }
 function adicionarFoto() {
+    $('.foto-upload').val('');
     $('.foto-upload').last().click();
 }
 

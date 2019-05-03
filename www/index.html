@@ -306,8 +306,7 @@
             <form id="wf-form-cadastro-peca" name="wf-form-cadastro-peca" data-name="cadastro peca" class="form-100">
               <div class="block-row">
 
-                <div class="block-column1 column-3" id="dados-do-look">
-                  <div class="no-display"><br><br><br></div>
+                <div class="block-column1 column-3" id="dados-do-look" >
 
                   <label for="Nome-look" class="flabel-cadastro">Insira o nome do look</label>
                   <input type="text" class="tfield-cadastro w-input" maxlength="256" name="Nome-look" data-name="Nome Look" placeholder="Crie um nome para o look" id="nomeLook" required="">
@@ -342,16 +341,15 @@
                       <option value="acessorios">Acessórios</option>
                       <option value="joias">Jóias</option>
                   </select>
-                  <div>
-                      <button type="button" id="btn-passo1" onclick="exibirProximoPasso('dados-do-look');exibirProximoPasso2('look2');exibirProximoPasso3('look3');" class="no-display btn-next">
+                  <div class="btn-posic display-none">
+                      <button type="button" id="btn-passo1" onclick="validarCamposPeca();" class="no-display btn-next">
                           <img src="images/seta-direita.png"> 
                       </button>
-                  </div>
+                  </div> 
+                  <div class="alerta" id="alerta">Preencha todos os campos antes de prosseguir <i class="fas fa-exclamation-triangle"></i></div>
                 </div>
-
-
-
-                <div class="block-column1 column-vert column3" id="look3"><div class="no-display"><br></div>
+ 
+                <div class="block-column1 column-vert column3" id="passo2">
                   <label class="flabel-tipo tipo-espaco menos-espaco">Closet</label>
                   <div class="block-conteudo-flex">
                       <label for="Tipo-Peca-2" class="flabel-cadastro">Selecione o tipo de peça para compor o Look</label>
@@ -384,34 +382,27 @@
                     <div class="block-peca peca-porcento peca3 peca-compoe peca-escolha-look" style="display:none">
                       <div class="block-menos block-mais">+</div>
                     </div>
-
                     <div class="block-conteudo-flex" id="pecas-escolher-looks"></div>
-                
-                
                   </div>
-   
                 </div>
-                <div class="block-column1 column-vert column3" id="look2" ><label class="flabel-tipo tipo-espaco">Peças que compoem o look</label>
+                <div class="block-column1 column-vert column3"><label class="flabel-tipo tipo-espaco" id="titulo-passo-2">Peças que compoem o look</label>
                   <div class="block-conteudo-flex">
-
                     <div class="block-peca peca-porcento peca3 peca-compoe peca-escolhida-look" style="display: none; float: left">
                       <div class="block-menos">-</div>
                     </div>
-
                     <div class="block-conteudo-flex" id="pecas-escolhidas-look"></div>
-                    
                   </div>
-                <button type="button" 
-                        onclick="esconderPasso1('look2');esconderPasso2('look3');mostrarPrimeiroPasso('dados-do-look');" 
-                        class="no-display btn-back"> 
-                       <img src="images/seta-direita.png">
-                 
-                </button>
+                  <div class="btn-posic" id="btn-passo-2">
+                    <button type="button" class="no-display btn-back" onclick="esconderPasso2('passo2'); exibirPasso1('dados-do-look');"> 
+                    <img src="images/seta-direita.png">
+                   </button>
+                  </div>
                 </div>
               </div>
            
               <div class="no-display"><br><br></div>
-              <input type="submit" value="Concluir" data-wait="Por Favor Aguarde" class="button-add w-button block1 btn-add"  onclick="esconderPasso1('look2');esconderPasso2('look3');mostrarPrimeiroPasso('dados-do-look');" ></form>
+              <input type="submit" value="Concluir" data-wait="Por Favor Aguarde" class="button-add w-button block1 btn-add" >
+            </form>
           </div>
         </div>
       </div>
@@ -629,32 +620,22 @@
   <script src="js/bibliotecas/jquery.mask.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script>
-      function exibirProximoPasso(el) {
-            var display = document.getElementById(el).style.display;
-            document.getElementById(el).style.display = 'none';
-        }
-        function exibirProximoPasso2(el) {
-            var display = document.getElementById(el).style.display;
-            document.getElementById(el).style.display = 'block';
-           
-        }
-        function exibirProximoPasso3(el) {
-            var display = document.getElementById(el).style.display;
-            document.getElementById(el).style.display = 'block';
-        }
         function esconderPasso1(el) {
-            var display = document.getElementById(el).style.display;
-            document.getElementById(el).style.display = 'none'
+           document.getElementById(el).style.display = 'none';
+        }
+        function exibirPasso2(el) {
+          document.getElementById('titulo-passo-2').style.display = 'block';
+          document.getElementById(el).style.display = 'block';
+          document.getElementById('btn-passo-2').style.display = 'block';
         }
         function esconderPasso2(el) {
-            var display = document.getElementById(el).style.display;
-            document.getElementById(el).style.display = 'none';
+           document.getElementById('titulo-passo-2').style.display = 'none';
+           document.getElementById('btn-passo-2').style.display = 'none';
+           document.getElementById(el).style.display = 'none';
         }
-        function mostrarPrimeiroPasso(el) {
-            var display = document.getElementById(el).style.display;
-            document.getElementById(el).style.display = 'block';
+        function exibirPasso1(el) {
+          document.getElementById(el).style.display = 'block';
         }
-
   </script>
   
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
