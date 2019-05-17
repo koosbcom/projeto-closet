@@ -298,6 +298,7 @@ $('#form-busca-pecas').submit(function (e) {
 })
 
 $('#girar-img').click(function () {
+  if ($('.foto-preview').length < 2) return contadorGirarFoto = 0
 
   contadorGirarFoto++
   if(contadorGirarFoto == 1){
@@ -318,6 +319,7 @@ $('#girar-img').click(function () {
 })
 
 $('#remover-img').click(function(){
+  contadorGirarFoto = 0
   retirarFoto()
 })
 $('#wf-form-cadastro-peca').submit(function (ev) {
@@ -385,37 +387,14 @@ function readURL(input) {
 
   }
 
-// function girarImg(graus, img) {
-//   graus= 90
-//     const canvas = document.createElement("canvas");
-//     contadorGirarFoto++
-  
-//     auxH =h
-//     auxW = w
-//     console.log(h, "x ",w)
-
-//     canvas.width = h
-//     canvas.height = w
-      
-//     const ctx = canvas.getContext("2d");
-  
-//     ctx.translate(canvas.width / 2, canvas.height / 2);
-//     ctx.clearRect(-canvas.width, -canvas.height, canvas.width * 2, canvas.height * 2);
-//     ctx.rotate(-graus * Math.PI / 180);
-
-//     ctx.drawImage(img, -auxW / 2, -auxH / 2);
- 
-//     img.src = canvas.toDataURL("image/png");
-    
-//     //img.style.width = "170px"
-//     //img.style.height = "200px"
-//   }
 
 function retirarFoto(posicao) {
     fotos = []
-    $('.foto-preview').first().remove();
-    $('.foto-upload').first().remove();
-    $('#input-foto-closet').val("");
+    if ($('.foto-preview').length > 1) {
+      $('.foto-preview').first().remove();
+      $('.foto-upload').first().remove();
+      $('#input-foto-closet').val("");
+    }
   }
 
 function atualizarPecas() {
