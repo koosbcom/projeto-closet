@@ -243,50 +243,89 @@ $('#add-peca').submit(function (evt) {
       stoppable: true,
     });
 
-    let dados = {
-      marca: $('#marca').val(),
-      categoria: $('#categoria').val(),
-      observacoes: $('#observacoes').val(),
-      rotate: $('#rotate').val(),
-    };
-    console.log(dados)
-    $('#add-peca').ajaxSubmit({
-      url: '/pecas',
-      type: 'POST',
-      data: { dados: dados },
-      contentType: 'application/json',
-      error: xhr => {
-        $('.body-100').loading('stop');
+      var dados = new FormData(this);
+  
+      $.ajax({
+          url: '/pecas?rotate=' + $('#rotate').val(),
+          type: "POST",
+          data: dados,
+          processData: false,
+          cache: false,
+          contentType: false,
+          success: function( data ) {
+              console.log(data);
+          },
+          error: function (request, status, error) {
+            $('.body-100').loading('stop');
+            console.error(error.message)
+            $.toast({
+              heading: 'Erro',
+              text: '2 - Não foi possível adicionar a peça. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
+              showHideTransition: 'slide',
+              icon: 'error',
+            });
+          },
+          success: function (response) {
+            $('.body-100').loading('stop');
 
-        $.toast({
-          heading: 'Erro',
-          text: '2 - Não foi possível adicionar a peça. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
-          showHideTransition: 'slide',
-          icon: 'error',
-        });
+            $('#marca').val('')
+            $('#categoria').val('')
+            $('#observacoes').val('')
+            $('#rotate').val('')
+            $('#foto-preview:eq("0")').remove();
+            $('.foto-upload:eq("0")').remove();
+            fotos = []
+          
+            $.toast({
+              heading: 'Sucesso',
+              text: 'Sua peça foi adicionada com sucesso.',
+              showHideTransition: 'slide',
+              icon: 'success',
+            });
+    
+            atualizarPecas();
+          }
 
-      },
-      success: response => {
-        $('.body-100').loading('stop');
+      });
 
-        $('#marca').val('')
-        $('#categoria').val('')
-        $('#observacoes').val('')
-        $('#rotate').val('')
-        $('#foto-preview:eq("0")').remove();
-        $('.foto-upload:eq("0")').remove();
-        fotos = []
+
+    // $('#add-peca').ajaxSubmit({
+    //   url: '/pecas',
+    //   type: 'POST',
+    //   data: { dados: dados },
+    //   contentType: 'application/json',
+    //   error: xhr => {
+    //     $('.body-100').loading('stop');
+
+    //     $.toast({
+    //       heading: 'Erro',
+    //       text: '2 - Não foi possível adicionar a peça. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
+    //       showHideTransition: 'slide',
+    //       icon: 'error',
+    //     });
+
+    //   },
+    //   success: response => {
+    //     $('.body-100').loading('stop');
+
+    //     $('#marca').val('')
+    //     $('#categoria').val('')
+    //     $('#observacoes').val('')
+    //     $('#rotate').val('')
+    //     $('#foto-preview:eq("0")').remove();
+    //     $('.foto-upload:eq("0")').remove();
+    //     fotos = []
       
-        $.toast({
-          heading: 'Sucesso',
-          text: 'Sua peça foi adicionada com sucesso.',
-          showHideTransition: 'slide',
-          icon: 'success',
-        });
+    //     $.toast({
+    //       heading: 'Sucesso',
+    //       text: 'Sua peça foi adicionada com sucesso.',
+    //       showHideTransition: 'slide',
+    //       icon: 'success',
+    //     });
 
-        atualizarPecas();
-      },
-    });
+    //     atualizarPecas();
+    //   },
+    // });
   } catch (e) {
     gerarToast()
   }

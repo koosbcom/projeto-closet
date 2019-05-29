@@ -12,15 +12,17 @@ const app = express();
 const { Image } = require('image-js')
 
 // Dados de conexão
-var db_host = '148.72.80.32';
-var db_user = 'motu';
-var db_senha = 'iS89!Hwe';
-var db_name = 'closet-bianca';
-var tables = ['pecas', 'looks', 'viagens'];
-var campos = ['categoria', 'pecas', 'nome', 'categorias'];
+const db_host = '148.72.80.32';
+const db_user = 'motu';
+const db_senha = 'iS89!Hwe';
+const db_name = 'closet-bianca';
+const tables = ['pecas', 'looks', 'viagens'];
+const campos = ['categoria', 'pecas', 'nome', 'categorias'];
 const port = 8080
+
 // BodyParser
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 // Multer
 app.use(multer({ dest: __dirname + '/uploads/' }).any());
@@ -31,7 +33,7 @@ app.use('/uploads/', express.static(path.join(__dirname, 'uploads')));
 
 // Conexao com base de dados
 const db_config = {
-  connectionLimit: 20,
+  connectionLimit: 10,
   host: db_host,
   user: db_user,
   password: db_senha,
@@ -436,21 +438,17 @@ app.post('/users/login', (req, res) => {
 
 // Adiciona um peca
 app.post('/pecas', (req, res) => {
-  console.log('PECAS')
   let table = 'pecas';
-
-  let dados = req.body.dados;
+  let dados = req.body.dados || req.body;
   let erro = validaDados(dados);
-
+  console.log(dados)
   let fotos = [];
 
   let contador = 1;
 
   if (erro === false) {
-    let rotate = 0
-    if (dados.rotate > 0) {
-      rotate = parseInt(req.body.rotate)
-    }
+
+    let rotate = parseInt(req.body.rotate) || parseInt(req.query.rotate) || 0
 
     delete dados.rotate
     
@@ -468,8 +466,13 @@ app.post('/pecas', (req, res) => {
       stream.on('finish', () => {
         fs.unlink(req.files[i].path, async (erro) => {
           if (erro) console.error(erro)
-          const image = await Image.load('./uploads/' + foto);
-          image.rotate(rotate).save('./uploads/' + foto)
+          try {
+            const image = await Image.load('./uploads/' + foto)
+            image.rotate(rotate).save('./uploads/' + foto)
+          } catch(e) { 
+            console.error(e.message) 
+            return res.json({ erro: true, mensagem: e.message });
+          }
         }
 
         )
