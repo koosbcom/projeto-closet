@@ -1,3 +1,15 @@
+var gerarToast = function () {
+  $.toast({
+    heading: 'Erro',
+    text:
+      'Não foi possível se conectar ao servidor. Certifique-se que seu computador está conectado a internet e tente novamente mais tarde.',
+    showHideTransition: 'slide',
+    icon: 'error',
+  });
+
+  $('.body-100').loading('stop');
+};
+
 var categorias = [
   { value: 'calças', text: 'Calças' },
   { value: 'casacos', text: 'Casacos' },
@@ -32,48 +44,59 @@ var app = new Vue({
     ids_selecionados: []
   },
   created: async function () {
-    const id = decodeURIComponent(
-      window.location.search.replace(
-        new RegExp(
-          '^(?:.*[&\\?]' +
+    try {
+
+      const id = decodeURIComponent(
+        window.location.search.replace(
+          new RegExp(
+            '^(?:.*[&\\?]' +
             encodeURIComponent('id').replace(/[\.\+\*]/g, '\\$&') +
             '(?:\\=([^&]*))?)?.*$',
-          'i'
-        ),
-        '$1'
-      )
-    )
-    const response = await obterDados(this.server + 'viagens/id/' + id)
-
-    this.viagem = response.resultado[0]
-
-    if (this.viagem.look_ids != null) {
-      const looks = JSON.parse(this.viagem.look_ids)
-      this.looks_selecionados = Array.isArray(looks) ? looks : []
-    }
-
-    call()
+            'i'
+            ),
+            '$1'
+            )
+            )
+            const response = await obterDados(this.server + 'viagens/id/' + id)
+            
+            this.viagem = response.resultado[0]
+            
+            if (this.viagem.look_ids != null) {
+              const looks = JSON.parse(this.viagem.look_ids)
+              this.looks_selecionados = Array.isArray(looks) ? looks : []
+            }
+            
+            call()
+          } catch(e) {
+            gerarToast()
+          }
+        
   },
   methods: {
     buscarLooks: async function () {
-      this.looks_apresentados = []
+      try {
 
-      const server = this.server
-      const response = await obterDados(
-        server + 'looks/categorias/' + this.categoriaSelecionada + '?like=true'
-      )
-
-      for (const look of response.resultado) {
-        const pecas = JSON.parse(look.pecas)
-        let foto = ''
-        if (pecas.length > 0) {
-          foto = JSON.parse(pecas[0].fotos)[0]
+        this.looks_apresentados = []
+        
+        const server = this.server
+        const response = await obterDados(
+          server + 'looks/categorias/' + this.categoriaSelecionada + '?like=true'
+          )
+          
+          for (const look of response.resultado) {
+            const pecas = JSON.parse(look.pecas)
+            let foto = ''
+            if (pecas.length > 0) {
+              foto = JSON.parse(pecas[0].fotos)[0]
+            }
+            look['foto'] = server + 'uploads/' + foto
+          }
+          
+          this.looks_apresentados = response.resultado
+        } catch(e) {
+          gerarToast()
         }
-        look['foto'] = server + 'uploads/' + foto
-      }
 
-      this.looks_apresentados = response.resultado
-      console.log(this.looks_apresentados)
     },
     selecionar: async function (look) {
       const val = this.looks_selecionados.find(l => l.look_id === look.look_id)
@@ -86,12 +109,17 @@ var app = new Vue({
       this.looks_selecionados.push(look)
     },
     concluir: async function () {
-      const look_ids = JSON.stringify(this.looks_selecionados)
-      const response = await alterarDados(
-        this.server + 'viagens/' + this.viagem.viagem_id,
-        { look_ids }
-      )
-      window.location = encodeURI('/index.html')
+      try {
+        const look_ids = JSON.stringify(this.looks_selecionados)
+        const response = await alterarDados(
+          this.server + 'viagens/' + this.viagem.viagem_id,
+          { look_ids }
+        )
+        window.location = encodeURI('/index.html')
+
+      } catch(e) {
+        gerarToast()
+      }
     },
     abrirLook: function (id) {
       window.open(
