@@ -663,6 +663,13 @@ $('#btn-deletar-viagem').click(function (e) {
   e.preventDefault()
 })
 
+
+$('#btn-looks-viagem').click(function (e) {
+  const id = $('#viagemID').val()
+  window.location = 'looks-viagem.html?id=' + id
+  e.preventDefault()
+})
+
 function carregarViagens(result) {
   let viagens = result.resultado;
 
@@ -717,6 +724,7 @@ function modificarViagem(viagem) {
 
   $('#submit-viagem').val('Modificar');
   $('#btn-deletar-viagem').show()
+  $('#btn-looks-viagem').show()
 
   $('#mod-viagem-form').css({
     display: 'flex',
@@ -735,6 +743,7 @@ function adicionarViagem() {
 
   $('#submit-viagem').val('Adicionar');
   $('#btn-deletar-viagem').hide();
+  $('#btn-looks-viagem').hide();
 
   //$('#add-viagem-button').trigger( "click" );
 }
@@ -791,7 +800,7 @@ function preencherSemana(viagens, mes, ano, diasDoMes, diaSemana, semana) {
   const meses = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
   for (let i = 0; i < 7; i++) {
-    const nomeEvento = preencherNomeDoEvento(viagens, mes, ano, diasDoMes);
+    let { nomeEvento, id } = preencherNomeDoEvento(viagens, mes, ano, diasDoMes);
 
     $('.block-dia-' + semana + ':eq(0)')
       .clone()
@@ -801,13 +810,16 @@ function preencherSemana(viagens, mes, ano, diasDoMes, diaSemana, semana) {
 
     $('.nome-evento-' + semana + ':eq(' + parseInt(i + 1) + ')').html('');
 
-
     if (diasDoMes > meses[mes]) {
       $('.data-evento-' + semana + ':eq(' + parseInt(i + 1) + ')').html('');
     } else if (i < diaSemana && semana === 1) {
       $('.data-evento-' + semana + ':eq(' + parseInt(i + 1) + ')').html('');
     } else {
       $('.nome-evento-' + semana + ':eq(' + parseInt(i + 1) + ')').html(nomeEvento);
+
+      if (nomeEvento && id) {
+        $('.nome-evento-' + semana + ':eq(' + parseInt(i + 1) + ')').attr('onclick', 'abrirViagens(' + id + ')')
+      }
       $('.data-evento-' + semana + ':eq(' + parseInt(i + 1) + ')').html(diasDoMes);
       diasDoMes++;
     }
@@ -815,13 +827,15 @@ function preencherSemana(viagens, mes, ano, diasDoMes, diaSemana, semana) {
   return diasDoMes;
 }
 
+function abrirViagens(id, nome) {
+  window.location = encodeURI("/looks-viagem.html?id=" + parseInt(id))
+}
+
 function preencherSemanaMobile(viagens, mes, ano, diasDoMes, diaSemana, semana) {
   const meses = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-  let eventoExistente = 0
-
   for (let i = 0; i < 7; i++) {
-    const nomeEvento = preencherNomeDoEvento(viagens, mes, ano, diasDoMes);
+    const { nomeEvento, id } = preencherNomeDoEvento(viagens, mes, ano, diasDoMes);
 
     if (diasDoMes > meses[mes]) {
 
@@ -841,6 +855,10 @@ function preencherSemanaMobile(viagens, mes, ano, diasDoMes, diaSemana, semana) 
 
         $('.nome-evento-' + semana).last().html(nomeEvento);
         $('.data-evento-' + semana).last().html(diasDoMes);
+
+        if (nomeEvento && id) {
+          $('.nome-evento-' + semana + ':eq(' + parseInt(i + 1) + ')').attr('onclick', 'abrirViagens(' + id + ')')
+        }
 
       }
       diasDoMes++;
@@ -852,10 +870,8 @@ function preencherSemanaMobile(viagens, mes, ano, diasDoMes, diaSemana, semana) 
 function preencherSemanaMobile(viagens, mes, ano, diasDoMes, diaSemana, semana) {
   const meses = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-  let eventoExistente = 0
-
   for (let i = 0; i < 7; i++) {
-    const nomeEvento = preencherNomeDoEvento(viagens, mes, ano, diasDoMes);
+    const { nomeEvento, id } = preencherNomeDoEvento(viagens, mes, ano, diasDoMes);
 
     if (diasDoMes > meses[mes]) {
 
@@ -875,6 +891,10 @@ function preencherSemanaMobile(viagens, mes, ano, diasDoMes, diaSemana, semana) 
 
         $('.nome-evento-' + semana).last().html(nomeEvento);
         $('.data-evento-' + semana).last().html(diasDoMes);
+
+        if (nomeEvento && id) {
+          $('.nome-evento-' + semana).last().attr('onclick', 'abrirViagens(' + id + ')')
+        }
 
       }
       diasDoMes++;
@@ -888,7 +908,7 @@ function preencherSemanaMobile(viagens, mes, ano, diasDoMes, diaSemana, semana) 
 function preencherNomeDoEvento(viagens, mes, ano, diaAtual) {
 
   let nomeEvento = '';
-
+  let id = 0
   mes += 1; // Corrigir mês
 
   for (let viagem of viagens) {
@@ -902,13 +922,29 @@ function preencherNomeDoEvento(viagens, mes, ano, diaAtual) {
     if (dataCompletaConvertida.isSameOrAfter(moment(dataInicioViagem))
       && dataCompletaConvertida.isSameOrBefore(moment(dataVoltaViagem))) {
       nomeEvento += viagem.cidade + ' / ';
+      id = viagem.viagem_id
+      if (viagem.look_ids) {
+        try {
+         const looks = JSON.parse(viagem.look_ids)
+         const nomes = looks.map(look => look.nome)
+         const nomesSelecionados = nomes.splice(0, 2)
+         nomesSelecionados.forEach(nome => {
+           nomeEvento += nome + ' - '
+         })
+        }  catch (e) {
+          console.error(e.message)
+        }
+      }
     }
+
   }
+
 
   if (!nomeEvento) nomeEvento = '';
   else nomeEvento = nomeEvento.substring(0, nomeEvento.length - 2);
-
-  return nomeEvento;
+  
+  
+  return { nomeEvento, id };
 }
 
 function mudarMes(acrescentar) {
