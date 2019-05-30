@@ -125,7 +125,7 @@
         <div class="section-cadastro">
           <div class="fblock-100">
             
-            <form id="add-peca" enctype="multipart/form-data">
+            <form id="add-peca" enctype="application/x-www-form-urlencoded">
               <div class="block-row">
 
                 <div class="block-column1">
@@ -189,7 +189,7 @@
                 
               </div>
               
-              <input type="submit" value="Concluir" data-wait="Por Favor Aguarde" class="button-add w-button block1 btn-add">
+              <button type="submit" id="enviar-peca" data-wait="Por Favor Aguarde" class="button-add w-button block1 btn-add">Concluir</button>
          
             </form>
           </div>
@@ -401,7 +401,7 @@
               </div>
            
               <div class="no-display"><br><br></div>
-              <input type="submit" value="Concluir" data-wait="Por Favor Aguarde" class="button-add w-button block1 btn-add" >
+              <input type="submit" value="Concluir" data-wait="Por Favor Aguarde" class="button-add w-button block1 btn-add" />
             </form>
           </div>
         </div>
