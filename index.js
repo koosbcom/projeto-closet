@@ -236,6 +236,7 @@ app.get('/:table/id/:_id', (req, res) => {
   }
   let field = 'id';
   if (table === 'looks') field = 'look_id';
+  if (table === 'viagens') field = 'viagem_id';
 
   let query =
     'SELECT * FROM ' + table + ' WHERE ' + field + ' = ' + mysql.escape(id);
