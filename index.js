@@ -442,64 +442,53 @@ app.post('/pecas', (req, res) => {
   let table = 'pecas';
   let dados = req.body.dados || req.body;
   let erro = validaDados(dados);
-  console.log(dados)
   let fotos = [];
 
-  let contador = 1;
-
   if (erro === false) {
-
     let rotate = parseInt(req.body.rotate) || parseInt(req.query.rotate) || 0
 
     delete dados.rotate
-    
-    for (let i = 0; i < req.files.length - 1; i++) {
-      let foto = Date.now() + i + '.jpg';
+   
+    let foto = Date.now() + Math.round(Math.random(200)) + '.jpg';
 
-      let readerStream = fs.createReadStream(req.files[i].path);
-      let dest_file = pathModule.join(req.files[i].destination, foto);
-      let writerStream = fs.createWriteStream(dest_file);
+    let readerStream = fs.createReadStream(req.files[0].path);
+    let dest_file = pathModule.join(req.files[0].destination, foto);
+    let writerStream = fs.createWriteStream(dest_file);
 
-      let stream = readerStream.pipe(writerStream);
+    let stream = readerStream.pipe(writerStream);
 
-      fotos.push(foto);
-      
-      stream.on('finish', () => {
-        fs.unlink(req.files[i].path, async (erro) => {
-          if (erro) console.error(erro)
-          try {
-            const image = await Image.load('./uploads/' + foto)
-            image.rotate(rotate).save('./uploads/' + foto)
-          } catch(e) { 
-            console.error(e.message) 
-            return res.json({ erro: true, mensagem: e.message });
-          }
-        }
+    fotos.push(foto);
 
-        )
-
-        contador++;
-
-        // Caso não tenha erros, adiciona na base de dados
-        if (contador === req.files.length) {
+    stream.on('finish', () => {
+      fs.unlink(req.files[0].path, async (erro) => {
+        if (erro) console.error(erro)
+        try {
+          const image = await Image.load('./uploads/' + foto)
+          image.rotate(rotate).save('./uploads/' + foto)
+          
           dados.fotos = JSON.stringify(fotos);
 
           let query = criarQueryInsert(dados, table);
 
           connection.query(query, (err, result) => {
             if (err) {
-              console.error(JSON.stringify(err));
-
-              return res.json({ erro: true, mensagem: JSON.stringify(err) });
+              console.error(err);
+              return res.json({ erro: true, mensagem: err.message });
             } else {
+              console.log('Finalizou')
               return res.json({ erro: false, resultado: result });
             }
           });
+
+        } catch(e) { 
+          console.error(e) 
+          return res.json({ erro: true, mensagem: e.message });
         }
-      });
-    }
+      })
+    });
+
   } else {
-    return res.json({ erro: true, mensagem: 'Dados invalidos' });
+    return res.status(400).json({ erro: true, mensagem: 'Dados invalidos' });
   }
 });
 
