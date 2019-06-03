@@ -875,14 +875,13 @@ function preencherNomeDoEvento(viagens, mes, ano, diaAtual) {
 
   for (let viagem of viagens) {
 
-    const dataInicioViagem = (viagem.dataInicio.split('/').reverse().join('-'));
-    const dataVoltaViagem = (viagem.dataVolta.split('/').reverse().join('-'));
-    const dataCompleta = (`${ano}-${mes}-${diaAtual}`);
+    const dataInicioViagem = viagem.dataInicio.split('/').reverse();
+    const dataVoltaViagem = viagem.dataVolta.split('/').reverse();
 
-    const dataCompletaConvertida = moment(dataCompleta)
+    const dataCompletaConvertida = moment(new Date(ano, mes, diaAtual))
 
-    if (dataCompletaConvertida.isSameOrAfter(moment(dataInicioViagem))
-      && dataCompletaConvertida.isSameOrBefore(moment(dataVoltaViagem))) {
+    if (dataCompletaConvertida.isSameOrAfter(moment(new Date(dataInicioViagem[0], dataInicioViagem[1], dataInicioViagem[2])))
+      && dataCompletaConvertida.isSameOrBefore(moment(new Date(dataVoltaViagem[0], dataVoltaViagem[1], dataVoltaViagem[2] )))) {
       nomeEvento += viagem.cidade + ' / ';
       id = viagem.viagem_id
       if (viagem.look_ids) {
