@@ -44,7 +44,7 @@
 
           <select id="categorias-look" v-model="categoriaSelecionada" class="tfield-cadastro w-select" @change="buscarLooks()">
             <option disabled>Categoria</option>
-            <option v-for="categoria in categorias" :value="categoria.value" @click="">{{categoria.text}}</option>
+            <option v-for="categoria in categorias" :value="categoria.value">{{categoria.text}}</option>
           </select>
 
         </div>

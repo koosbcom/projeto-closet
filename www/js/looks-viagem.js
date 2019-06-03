@@ -45,7 +45,6 @@ var app = new Vue({
   },
   created: async function () {
     try {
-
       const id = decodeURIComponent(
         window.location.search.replace(
           new RegExp(
@@ -53,49 +52,50 @@ var app = new Vue({
             encodeURIComponent('id').replace(/[\.\+\*]/g, '\\$&') +
             '(?:\\=([^&]*))?)?.*$',
             'i'
-            ),
-            '$1'
-            )
-            )
-            const response = await obterDados(this.server + 'viagens/id/' + id)
-            
-            this.viagem = response.resultado[0]
-            
-            if (this.viagem.look_ids != null) {
-              const looks = JSON.parse(this.viagem.look_ids)
-              this.looks_selecionados = Array.isArray(looks) ? looks : []
-            }
-            
-            call()
-          } catch(e) {
-            gerarToast()
-          }
-        
+          ),
+          '$1'
+        )
+      )
+      const response = await obterDados(this.server + 'viagens/id/' + id)
+      this.viagem = response.resultado[0]
+
+      if (this.viagem.look_ids != null) {
+        const looks = JSON.parse(this.viagem.look_ids)
+        this.looks_selecionados = Array.isArray(looks) ? looks : []
+      }
+
+      call()
+    } catch (e) {
+      console.error(e.message)
+      gerarToast()
+    }
+
   },
   methods: {
     buscarLooks: async function () {
       try {
-
         this.looks_apresentados = []
-        
+
         const server = this.server
-        const response = await obterDados(
-          server + 'looks/categorias/' + this.categoriaSelecionada + '?like=true'
-          )
-          
-          for (const look of response.resultado) {
-            const pecas = JSON.parse(look.pecas)
-            let foto = ''
-            if (pecas.length > 0) {
-              foto = JSON.parse(pecas[0].fotos)[0]
-            }
-            look['foto'] = server + 'uploads/' + foto
+        const response = await obterDados(server + 'looks/categorias/' + this.categoriaSelecionada + '?like=true')
+
+        for (const look of response.resultado) {
+          const pecas = JSON.parse(look.pecas)
+          let foto = ''
+
+          if (pecas.length > 0) {
+            const fotos = pecas[0].fotos ? pecas[0].fotos : [null]
+            foto = fotos[0] || 'default-1.png'
           }
-          
-          this.looks_apresentados = response.resultado
-        } catch(e) {
-          gerarToast()
+          look['foto'] = server + 'uploads/' + foto
         }
+
+        this.looks_apresentados = response.resultado
+
+      } catch (e) {
+        console.error(e.message)
+        gerarToast()
+      }
 
     },
     selecionar: async function (look) {
@@ -117,7 +117,7 @@ var app = new Vue({
         )
         window.location = encodeURI('/index.html')
 
-      } catch(e) {
+      } catch (e) {
         gerarToast()
       }
     },
@@ -130,7 +130,7 @@ var app = new Vue({
   }
 })
 
-function call () {
+function call() {
   $(document).ready(function () {
     $('#titulo-viagem').text(app.viagem.cidade)
   })
