@@ -4741,6 +4741,20 @@ html.w-mod-js *[data-ix="bloc-form"] {
   }
 }
 
+
+.margin-block-x{
+  margin-right: 90px;
+}
+.block-x{
+  float: left;
+  height: 20px;
+  padding: 10px;
+  font-size: 10px;
+  width: 10px!important;
+}
+.block-pecas{
+  float: left!important;
+}
 @font-face {
   font-family: "Circularpro";
   src: url("../fonts/CircularPro-Bold.otf") format("opentype");
