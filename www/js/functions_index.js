@@ -415,7 +415,6 @@ function atualizarPecas() {
 
 // Carrega as peças a partir de um dataset de resultado
 function carregarPecas(result) {
-  console.log(result)
   let pecas = result.resultado;
   let contador = 0;
   let colunas = [1, 1, 1];
@@ -435,7 +434,8 @@ function carregarPecas(result) {
     $('.pecas-start-' + contador + ':eq(0)')
       .clone()
       .appendTo('#coluna-pecas-' + contador);
-    $('.pecas-start-' + contador + ':eq(' + colunas[contador] + ')').show();
+      $('.pecas-start-' + contador + ':eq(' + colunas[contador] + ')').show();
+    $('.apagar-peca-' + contador + ':eq(' + colunas[contador] + ')').attr('onClick', `apagarPeca(${pecas[i].peca_id}, ${contador}, ${colunas[contador]})`);
     $('.peca-peca-' + contador + ':eq(' + colunas[contador] + ')').css(
       'background-image',
       'url(uploads/' + fotosPecas[0] + ')'
@@ -443,7 +443,6 @@ function carregarPecas(result) {
     $('.escrito-peca-' + contador + ':eq(' + colunas[contador] + ')').html(
       pecas[i].marca
     );
-    //$('.pecas-start:eq(' + parseInt(contador + 1) + ')').hide();
 
     colunas[contador]++;
 
@@ -453,6 +452,19 @@ function carregarPecas(result) {
       contador = 0;
     }
   }
+}
+
+function apagarPeca (id, contador, colunasContador) {
+  criarLoading()
+  apagarDados('/pecas/' + id)
+    .then((result) => {
+      $('.pecas-start-' + contador + ':eq(' + colunasContador + ')').remove();
+      pararLoading()
+      atualizarPecas()
+
+    }).catch((error) => {
+      gerarToast()
+    })
 }
 
 function pecasCategoria(categoria) {

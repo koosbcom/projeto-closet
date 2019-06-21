@@ -590,18 +590,22 @@ app.delete('/:table/:_id', (req, res) => {
   let field = 'id'
   if (table === 'looks') field = 'look_id'
   if (table === 'viagens') field = 'viagem_id'
+  if (table === 'pecas') field = 'peca_id'
 
   let query = 'DELETE FROM ' + table + ' WHERE ' + field + ' = ' + mysql.escape(id);
-
+  
   connection.query(query, (err, result) => {
     if (err) {
-      console.error(JSON.stringify(err));
+      console.error(err);
 
-      return res.json({ erro: true, mensagem: JSON.stringify(err) });
+      return res.json({ erro: true, mensagem: err.message });
     }
 
     if (result !== null) {
       return res.json({ erro: false, resultado: result });
     }
+
+    return res.json({ erro: true, resultado: 'Resultado Vazio' });
+
   });
 });
